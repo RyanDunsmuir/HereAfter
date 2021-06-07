@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_140154) do
+ActiveRecord::Schema.define(version: 2021_06_07_151430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: :cascade do |t|
+    t.integer "experience", default: 0
+    t.boolean "locked", default: true
+    t.text "image_url", null: false
+    t.text "title", null: false
+    t.text "description", null: false
+    t.text "hint", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "capsules", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.bigint "category_id", null: false
+    t.date "arrival_date", null: false
+    t.boolean "hidden", default: true
+    t.text "message"
+    t.text "title", null: false
+    t.boolean "read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_capsules_on_category_id"
+    t.index ["owner_id"], name: "index_capsules_on_owner_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "capsule_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["capsule_id"], name: "index_recipients_on_capsule_id"
+    t.index ["user_id"], name: "index_recipients_on_user_id"
+  end
+
+  create_table "user_badges", force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +72,18 @@ ActiveRecord::Schema.define(version: 2021_06_07_140154) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "experience", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "capsules", "categories"
+  add_foreign_key "capsules", "users", column: "owner_id"
+  add_foreign_key "recipients", "capsules"
+  add_foreign_key "recipients", "users"
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "users"
 end
