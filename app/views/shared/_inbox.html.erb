@@ -1,0 +1,28 @@
+
+<div class="inbox-title">
+  <h1>Your Capsules</h1>
+  <a href="#" class="inbox-button drop-shadow">+ CAPSULE</a>
+</div>
+
+<div class="inbox-container">
+  <% current_user.capsules.each do |capsule| %>
+    <div class="inbox-card">
+      <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+      <div class="name-date-sent">
+        <div class="capsule-owner">
+          <h2><%= capsule.owner.first_name.capitalize %></h2>
+        </div>
+        <div class="capsule-sent">
+          <p><em class="purple-sent">Sent: </em><%= capsule.arrival_date.to_s %></p>
+        </div>
+      </div>
+      <div class="inbox-timer-title"><h2><strong>Opens In:</strong> <%= Time.now %></h2> </div>
+      <div class="inbox-card-right">
+        <div class="inbox-right-details">
+          <div class="inbox-capsule-icon"></div>
+          <div class="inbox-arrives"><p><em>Arrives:</em> 04/04/2020</p></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

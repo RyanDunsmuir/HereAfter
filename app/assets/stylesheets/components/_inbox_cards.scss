@@ -1,0 +1,87 @@
+.inbox-card {
+  display: flex;
+  margin: 15px 85px 10px 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.inbox-avatar {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 0px;
+  background: $purple-main-lighter;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+}
+
+.name-date-sent {
+  margin-left: 10px;
+  p {
+    margin-bottom: 0;
+    font-size: 12px;
+    em {
+      font-size: 16px;
+    }
+  }
+}
+
+.capsule-owner h2 {
+  color: $our-black;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.capsule-sent {
+
+}
+
+.purple-sent {
+  color: $purple-main-lighter;
+}
+
+.inbox-timer-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  strong {
+    color: $purple-main;
+  }
+  h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}
+
+.inbox-card-right {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.inbox-capsule-icon {
+  background: $purple-main;
+  width: 40px;
+  height: 15px;
+  border-radius: 15px;
+  margin-bottom: 4px;
+}
+
+.inbox-arrives {
+  p {
+    font-size: 16px;
+    margin-bottom: 0;
+    em {
+      color: $purple-main-lighter;
+    }
+  }
+}
