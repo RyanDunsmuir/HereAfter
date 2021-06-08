@@ -9,5 +9,85 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 140px;
+  margin: 10px;
 }
+
+.navbar-brand{
+  flex-grow: 1;
+  display: inline-flex;
+  align-items: center;
+
+}
+
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 140%;
+  margin: 10px;  
+}
+
+.nav-icon {
+  text-decoration: none;
+  color: $purple-main-lighter;
+}
+
+.navbar-nav-mobile {
+  text-align: right;
+  list-style-type: none;
+}
+
+.nav-link a {
+  text-decoration: none;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .mobile-nav {
+   display: flex;
+   }
+   .desktop-nav {
+    display: none;
+    }
+  }
+  
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+  .mobile-nav {
+   display: none;
+   }
+   .desktop-nav {
+    display: flex;
+    }
+  }
+  
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    .mobile-nav {
+      display: flex;
+    }
+    .desktop-nav {
+      display: none;
+    }
+  }
+  
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    .mobile-nav {
+      display: none;
+    }
+    .desktop-nav {
+      display: flex;
+    }
+  }
+  
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    .mobile-nav {
+      display: none;
+    }
+    .desktop-nav {
+      display: flex;
+    }
+  }
+  
