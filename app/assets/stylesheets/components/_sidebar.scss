@@ -1,0 +1,107 @@
+.sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  background-color: $purple-main-light;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+.profile-container {
+  background-color: $purple-main;
+  height: 160px;
+  margin-top: 46px;
+  width: 100%;
+  position: relative;
+}
+
+.avatar-profile {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  z-index: 0;
+}
+
+.username {
+  color: $our-white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.traveller-info {
+  color: $our-white;
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+.master-xp-container {
+  margin: auto 0 0 0;
+}
+
+.xp-container {
+  position: relative;
+  width: 100%;
+}
+
+.xp-container p {
+  color: $purple-main;
+  font-size: 0.8rem;
+  text-align: center;
+  &:hover {
+    color: #FFFFFF;
+    opacity: 0.6;
+  }
+}
+
+.progress-bar-main {
+  border: 4px solid #FFFFFF;
+  border-radius: 25px;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0;
+}
+
+.progress-bar-xp {
+  border: 4px solid #FFFFFF;
+  border-radius: 25px;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-tab {
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  height: 55px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+  border-radius: 60px;
+  background-color:  #FFFFFF;
+  opacity: 1;
+  text-align: left;
+  }
+}
+
+.main-icon {
+  color: $purple-main;
+  font-size: 22px;
+}
+
+
+.active-tab {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
