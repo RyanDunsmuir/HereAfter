@@ -9,21 +9,70 @@
 # generate 10 users
 
 Recipient.destroy_all
-UserSong.destroy_all
-Song.destroy_all
-Category.destroy_all
+UserBadge.destroy_all
 Capsule.destroy_all
+Category.destroy_all
 User.destroy_all
 
 
-puts "generating Users..."
+puts "Generating 10 Users..."
 
-  10.times do {
+10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "#{Faker::Name.first_name}@gmail.com"
   username = Faker::Games::Pokemon.name.strip
   password = '123456'
-  user = User.new(name:)
+  user = User.new(first_name: first_name, last_name: last_name, email: email, username: username, password: password )
+  user.save
+  print "#{username}" + "#{User.all.count == 11 ? '.' : ', '}"
+end
 
-}
+puts "Generating categories..."
+
+categories = %w[Birthday NewYears Wedding Graduation Confession Anniversary Festival Prediction]
+
+categories.each do |category|
+  new_category = Category.new(name: category)
+  new_category.save
+  print "#{category}" + "#{Category.all.count == 9 ? '.' : ', '}"
+end
+
+puts "Generating 3 Past Capsules for each User..."
+
+User.all.each do |user|
+  3.times do
+    users = User.all
+    users.to_a.delete_at(user.id - 1)
+
+    time_rand_past = Time.at(0.0 + rand * (Time.now.to_f - 0.0))
+
+    arrival_date = time_rand_past
+    categories = Category.all
+    receiver = users.sample
+    message = Faker::Quote.famous_last_words
+
+    new_capsule = Capsule.create(owner: user, category: categories.sample, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    Recipient.create(capsule: new_capsule, user: receiver)
+  end
+end
+
+puts "Generating 3 Future Capsules for each User..."
+
+User.all.each do |user|
+  3.times do
+    users = User.all
+    users.to_a.delete_at(user.id - 1)
+
+    arrival_date = Time.at(Time.now + rand * (4776749101.57795 - Time.now.to_f))
+
+    categories = Category.all
+    receiver = users.sample
+    message = Faker::Quote.famous_last_words
+
+    new_capsule = Capsule.create(owner: user, category: categories.sample, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    Recipient.create(capsule: new_capsule, user: receiver)
+  end
+end
+
+puts "All Done!"

@@ -1,6 +1,6 @@
 class Capsule < ApplicationRecord
-  has_one_attached :video
-  has_one_attached :photo
+  has_one_attached :video, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
   has_many :recipients
   has_many :users, through: :recipients
 
