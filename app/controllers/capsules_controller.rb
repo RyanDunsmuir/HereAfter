@@ -1,15 +1,16 @@
 class CapsulesController < ApplicationController
-
-  before_action :set_capsule, only: [:create, :destroy]
-
   def create
+    correct_category = Category.all[params[:capsule][:category].to_i]
     @capsule = Capsule.new(capsule_params)
+    @capsule.category = correct_category
+    @capsule.owner = current_user
     @capsule.save
 
+    recipient = Recipient.new(user: User.where(first_name: params[:capsule][:users].split[0]).first, capsule: @capsule)
+    recipient.save
     # no need for app/views/capsules/create.html.erb
-    redirect_to capsules_path(@Capsule)
+    redirect_to root_path
   end
-
 
   def destoy
     @capsule = Capsule.find(params[:id])
@@ -18,17 +19,10 @@ class CapsulesController < ApplicationController
     # no need for app/views/capsules/destroy.html.erb
     redirect_to capsules_path
   end
-  
+
   private
 
-  def set_capsule
-    @capsule = Capsule.find(params[:id])
+  def capsule_params
+    params.require(:capsule).permit(:arrival_date, :message, :title)
   end
-
-  def capsules_params
-    params.require(:capsule).permit(:owner, :category, :arrival_date, :message, :title)
-  end
-
-
 end
-

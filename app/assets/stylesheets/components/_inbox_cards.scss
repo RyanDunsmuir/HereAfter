@@ -64,10 +64,10 @@
 
 .inbox-timer-title {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
-  margin: 0 auto;
+
   strong {
     color: $purple-main;
   }
@@ -77,13 +77,20 @@
   }
 }
 
+.inbox-card-left {
+  margin-right: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .inbox-card-right {
   margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-
 }
 
 .inbox-capsule-icon {

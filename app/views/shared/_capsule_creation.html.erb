@@ -16,8 +16,8 @@
 
       <div class="modal-body">
         <% @new_capsule = Capsule.new %>
-        <%= simple_form_for @new_capsule do |f| %>
-          <%= f.input :users, as: :select, collection: @users, prompt: 'Who do you want to send it to', label: false %>
+        <%= simple_form_for @new_capsule, method: :post do |f| %>
+          <%= f.input :users, as: :select, collection: @users, prompt: 'Recipient', label: false %>
           <%= f.input :category, as: :select, collection: @categories, prompt: 'Select Category', label: false%>
           <%= f.input :title %>
           <%= f.input :message %>
