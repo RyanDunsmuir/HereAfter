@@ -4,9 +4,9 @@
   z-index: 1;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon {
+//   flex-grow: 0;
+// }
 
 .navbar-lewagon .navbar-brand img {
   width: 140px;
@@ -21,6 +21,7 @@
 }
 
 .nav-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
   font-size: 140%;
@@ -35,11 +36,25 @@
 .navbar-nav-mobile {
   text-align: right;
   list-style-type: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-link a {
   text-decoration: none;
 }
+
+.dropdown-toggle{
+  font-size: 100%;
+  
+  right: 1px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+  position: absolute;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -64,10 +79,10 @@
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px) {
     .mobile-nav {
-      display: flex;
+      display: none;
     }
     .desktop-nav {
-      display: none;
+      display: flex;
     }
   }
   
