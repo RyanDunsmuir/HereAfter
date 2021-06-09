@@ -1,6 +1,6 @@
 
 .inbox-title {
-  padding: 50px 60px 60px 60px;
+  padding: 20px 60px 0px 40px;
   margin-left: 10px;
   display: flex;
   justify-content: space-between;
@@ -41,12 +41,12 @@
 
 .inbox-container {
   position: absolute;
-  left: 300px;
+  left: 325px;
   right: 2.15%;
   top: 24%;
   bottom: 4.33%;
   padding: 30px;
-  overflow-y: scroll;
+
   background: #FFFFFF;
   /* 03 dp */
 
@@ -54,4 +54,6 @@
   border-radius: 30px;
 }
 
-
+#countdown  {
+  display: inline;
+}
