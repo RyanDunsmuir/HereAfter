@@ -30,7 +30,11 @@
 
 .nav-icon {
   text-decoration: none;
-  color: $purple-main-lighter;
+  color: $purple-main;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .navbar-nav-mobile {
