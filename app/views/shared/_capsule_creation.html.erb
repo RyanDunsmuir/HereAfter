@@ -1,0 +1,35 @@
+<div class="modal fade create_capsule_bd-example-modal"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content" style="border-radius: 25px;">
+
+      <div class="modal-header">
+
+        <h2 style="margin-left: 10vh;">Send a capsule</h2>
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+        <% @new_capsule = Capsule.new %>
+        <%= simple_form_for @new_capsule do |f| %>
+          <%= f.input :users, as: :select, collection: @users, prompt: 'Who do you want to send it to', label: false %>
+          <%= f.input :category, as: :select, collection: @categories, prompt: 'Select Category', label: false%>
+          <%= f.input :title %>
+          <%= f.input :message %>
+          <%= f.input :arrival_date %>
+
+      <div>
+        <%= f.submit class: 'primary-button btn-block mt-4' %>
+        <% end %>
+      </div>
+
+      </div>
+
+      </div>
+    </div>
+</div>

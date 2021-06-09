@@ -1,7 +1,9 @@
 
 <div class="inbox-title">
   <h1>Your Capsules</h1>
-  <a href="#" class="inbox-button drop-shadow">+ CAPSULE</a>
+
+  <%= link_to "+ CAPSULE", "", data: {toggle: "modal", target: ".create_capsule_bd-example-modal"}, class: "primary-button drop-shadow" %>
+
 </div>
 
 <div class="inbox-container">
@@ -43,3 +45,5 @@
   <% end %>
 
 </div>
+
+<%= render 'shared/capsule_creation' %>
