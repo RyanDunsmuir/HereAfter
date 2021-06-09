@@ -1,37 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light mobile-nav navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-expand-md navbar-light mobile-nav navbar-lewagon drop-shadow ">
+
+  <button class="navbar-toggler" type="button" data-toggle=" " data-target="#" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "logo-main-hereafter.png" %>
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <div class="navbar-icons" id="navbarSupportedContent">
   
-    <ul class="navbar-nav-mobile mr-auto">
+    <ul class="nav mr-auto d-inline">
       <% if user_signed_in? %>
-        <li class="nav-item-mobile">
-          <div>
-            <%= link_to  class: "nav-link" do %>
-              <i class="fas fa-bell nav-icon"></i> Notifications
-            <% end %>
-          </div>  
-        </li>
-        <li class="nav-item-mobile">
-         <div>
-            <%= link_to class: "nav-link" do %>
-              <i class="fas fa-cog nav-icon"></i> Settings
-            <% end %>
-          </div>  
+        <li class="nav-item">
+          <%= link_to  class: "nav-link" do %>
+            <i class="fas fa-bell nav-icon"></i>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= button_tag "/assets/images/cog-solid.svg", class: "btn btn dropdown-toggle", type: "button", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+            <i class="fas fa-cog nav-icon"></i>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -47,18 +39,14 @@
 
 <%# Desktop Navbar %>
 
-<div class="navbar navbar-expand-sm navbar-light desktop-nav navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light desktop-nav navbar-lewagon drop-shadow">
 
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "logo-main-hereafter.png" %>
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="navbar-icons" id="navbarSupportedContent">
   
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -67,16 +55,11 @@
             <i class="fas fa-bell nav-icon"></i>
           <% end %>
         </li>
-        <li class="nav-item">
-          <%= link_to class: "nav-link" do %>
+        <li class="nav-item dropdown">
+          <%= button_tag "/assets/images/cog-solid.svg", class: "btn btn dropdown-toggle", type: "button", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
             <i class="fas fa-cog nav-icon"></i>
           <% end %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
