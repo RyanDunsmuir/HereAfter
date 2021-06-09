@@ -12,13 +12,15 @@
     <div class="inbox-card">
 
       <% notarrived = capsule.arrival_date.to_time.to_f > capsule.created_at.to_f %>
-        <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
-        <div class="name-date-sent">
-          <div class="capsule-owner" id="<%= 'opened-capsule' unless notarrived %>">
-            <h2><%= capsule.owner.first_name.capitalize %></h2>
-          </div>
-          <div class="capsule-sent">
-            <p><em class="purple-sent">Sent: </em><em id="sent-date"><%= capsule.created_at.strftime("%d/%m/%Y")  %></em></p>
+        <div class="inbox-card-left">
+          <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+          <div class="name-date-sent">
+            <div class="capsule-owner" id="<%= 'opened-capsule' unless notarrived %>">
+              <h2><%= capsule.owner.first_name.capitalize %></h2>
+            </div>
+            <div class="capsule-sent">
+              <p><em class="purple-sent">Sent: </em><em id="sent-date"><%= capsule.created_at.strftime("%d/%m/%Y")  %></em></p>
+            </div>
           </div>
         </div>
         <div class="inbox-timer-title"><%= render 'shared/countdown_timer', capsule: capsule %></div>
