@@ -1,0 +1,54 @@
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background: $purple-main;
+  width: 150px;
+  height: 48px;
+  border-radius: 28px;
+  color: $our-white;
+
+  a {
+    opacity: 0.77;
+  }
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  border-style: none;
+
+   &:hover {
+    color: $our-white;
+    text-decoration: none;
+    opacity: 0.6;
+  }
+}
+
+
+// display: flex;
+//   align-items: center;
+//   justify-content:center;
+//   background: $purple-main;
+//   width: 150px;
+//   height: 48px;
+//   border-radius: 28px;
+//   color: #F1F1F1;
+//   a {
+//     opacity: 0.77;
+//   }
+//   font-family: Poppins;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 14px;
+//   line-height: 16px;
+//   /* identical to box height, or 114% */
+//   letter-spacing: 1.25px;
+//   text-transform: uppercase;
+//   &:hover {
+//     text-decoration: none;
+//     opacity: 0.77;
+//     color: $purple-main-light;
+//   }
