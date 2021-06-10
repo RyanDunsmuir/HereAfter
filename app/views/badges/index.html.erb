@@ -1,4 +1,4 @@
-<%= render 'shared/sidebar' %>
+<%= render 'shared/sidebar_badges' %>
 
 <div class="body-container">
   <div class="inbox-title">
@@ -12,8 +12,6 @@
 
     <%= link_to badge_path(badge) do %>
         <li>
-          <%= badge.title %> <br>
-          <%= badge.hint %> <br>
           <%= badge.image_url %>
         </li>
       </ul>
