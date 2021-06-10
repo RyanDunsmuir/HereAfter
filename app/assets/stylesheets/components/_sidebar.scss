@@ -14,7 +14,7 @@
 
 .profile-container {
   background-color: $purple-main;
-  height: 160px;
+  height: 152px;
   margin-top: 63px;
   width: 100%;
   position: relative;
@@ -40,37 +40,19 @@
   font-size: 0.8rem;
 }
 
-// Styling for the XP bar (confusing af for now)
-
-.xp-container {
-  position: relative;
-  width: auto;
+// Styling for the XP bar
+.progress-bar-striped {
+  color: $our-white;
+  background-color: $purple-main;
 }
 
-.xp-container p {
-  font-size: 0.8rem;
-  text-align: center;
-  color: #FFFFFF;
+.progress-bar {
   opacity: 0.6;
 }
 
-.progress-bar-main {
-  border: 4px solid #FFFFFF;
-  border-radius: 25px;
+.progress-bar-animated {
   opacity: 0.6;
-  position: absolute;
-  bottom: -32px;
-  width: 100%;
 }
-
-.progress-bar-xp {
-  border: 4px solid #FFFFFF;
-  border-radius: 25px;
-  opacity: 1;
-  position: absolute;
-  bottom: -32px;
-}
-
 
 // CSS for sidebar tabs
 
