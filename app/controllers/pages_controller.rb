@@ -18,6 +18,9 @@ class PagesController < ApplicationController
     @users = get_user_list(User.all)
   end
 
+  def test
+  end
+
   private
 
   def get_user_list(users)
