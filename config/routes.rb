@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   delete '/capsule/:id' => 'capsules#destroy', :as => :capsule
   get '/badges' => 'badges#index', :as => :badges
   get '/badge/:id' => 'badges#show', :as => :badge
+  get '/test/' => 'pages#test', :as => :test
 end
