@@ -83,17 +83,18 @@
 }
 
 
-// add drop shadow to the pill when active (like an active tab)
-
 .main-icon {
   color: $purple-main;
   font-size: 22px;
 }
+
+// add drop shadow to the pill when active (like an active tab)
 
 .active-tab {
   border-radius: 60px;
   background-color:  #FFFFFF;
   opacity: 1;
   text-align: left;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }

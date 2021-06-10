@@ -15,13 +15,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %>">
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
 
 
 
-      <%= yield %>
+    <%= yield %>
 
 
 
