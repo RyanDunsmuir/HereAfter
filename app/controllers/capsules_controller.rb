@@ -9,7 +9,7 @@ class CapsulesController < ApplicationController
     recipient = Recipient.new(user: User.where(first_name: params[:capsule][:users].split[0]).first, capsule: @capsule)
     recipient.save
     # no need for app/views/capsules/create.html.erb
-    redirect_to root_path
+    redirect_to inbox_path
   end
 
   def destoy
