@@ -1,6 +1,6 @@
 
 .inbox-title {
-  padding: 20px 60px 0px 40px;
+  padding: 10px 60px 10px 20px;
   margin-left: 10px;
   display: flex;
   justify-content: space-between;
@@ -20,18 +20,21 @@
 }
 
 .inbox-container {
-  position: absolute;
-  left: 325px;
-  right: 2.15%;
-  top: 24%;
-  bottom: 4.33%;
-  padding: 30px;
 
+  margin-top: 10px;
+  margin-right: 50px;
+  padding: 30px;
+  height: 630px;
   background: #FFFFFF;
+  overflow-y: scroll;
   /* 03 dp */
 
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.14), 0px 3px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
+}
+
+.inbox-container::-webkit-scrollbar {
+  display: none;
 }
 
 #countdown  {

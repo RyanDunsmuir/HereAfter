@@ -1,0 +1,29 @@
+<div class="modal fade capsule_open_bd-example-modal-<%= capsule.id %>"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content" style="border-radius: 25px;">
+
+      <div class="modal-header">
+
+        <h2 class="ml-4 mt-4"><%= capsule.title %> </h2>
+
+
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+
+      </div>
+
+      <div class="modal-body ml-4">
+        <p><%= capsule.message %></p>
+      </div>
+      <%= link_to capsule_path(capsule), method: :patch, class: "btn btn-block m-4 primary-button" do %>
+        Mark as read
+      <% end %>
+      <!-- <button class="btn m-4 primary-button" data-dismiss="modal" aria-label="Close">Done</button>
+ -->
+      </div>
+    </div>
+</div>
+
+

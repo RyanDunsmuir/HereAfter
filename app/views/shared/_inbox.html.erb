@@ -8,44 +8,12 @@
 
 <div class="inbox-container">
 
+
   <% @inboxcaps.each do |capsule| %>
-    <div class="inbox-card">
-
-      <% notarrived = capsule.arrival_date.to_time.to_f > capsule.created_at.to_f %>
-        <div class="inbox-card-left">
-          <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
-          <div class="name-date-sent">
-            <div class="capsule-owner" id="<%= 'opened-capsule' unless notarrived %>">
-              <h2><%= capsule.owner.first_name.capitalize %></h2>
-            </div>
-            <div class="capsule-sent">
-              <p><em class="purple-sent">Sent: </em><em id="sent-date"><%= capsule.created_at.strftime("%d/%m/%Y")  %></em></p>
-            </div>
-          </div>
-        </div>
-        <div class="inbox-timer-title"><%= render 'shared/countdown_timer', capsule: capsule %></div>
-        <div class="inbox-card-right">
-          <div class="inbox-right-details">
-            <% if notarrived %>
-              <div class="inbox-capsule-icon"></div>
-              <div class="inbox-arrives" id="unopened-capsule">
-                <p>
-                  <em>Arrives: <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
-                </p>
-              </div>
-            <% else %>
-              <svg width="34" height="21" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#AA89CB"/>
-              <path d="M10 11H5.5C2.46243 11 -2.65552e-07 8.53757 0 5.5C2.65553e-07 2.46243 2.46243 -2.65552e-07 5.5 0L10 3.93403e-07L10 11Z" fill="#AA89CB"/>
-              </svg>
-              <div class="inbox-arrived"><p><em>Arrived: <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em></p></div>
-            <% end %>
-
-          </div>
-        </div>
-      </div>
+   <%= render 'shared/inbox_capsule_card', capsule: capsule%>
   <% end %>
 
 </div>
 
 <%= render 'shared/capsule_creation' %>
+

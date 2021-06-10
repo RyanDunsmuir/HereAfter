@@ -20,9 +20,16 @@ class CapsulesController < ApplicationController
     redirect_to capsules_path
   end
 
+  def update
+    @capsule = Capsule.find(params[:id])
+    @capsule.read = true
+    @capsule.save
+    redirect_to inbox_path
+  end
+
   private
 
   def capsule_params
-    params.require(:capsule).permit(:arrival_date, :message, :title)
+    params.require(:capsule).permit(:arrival_date, :title)
   end
 end
