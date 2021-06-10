@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def inbox
+    @inboxcaps = current_user.capsules.order(:arrival_date).reverse
     @capsules = current_user.capsules
     @owned_capsules = current_user.owned_capsules
     @categories = Category.all
