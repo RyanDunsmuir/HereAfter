@@ -1,2 +1,23 @@
-<h1>Badges#index</h1>
-<p>Find me in app/views/badges/index.html.erb</p>
+<%= render 'shared/sidebar_badges' %>
+
+<div class="body-container">
+  <div class="inbox-title">
+    <h1>Your Badges</h1>
+  </div>
+
+  <div class="container">
+
+    <% @badges.each do |badge|%>
+    <ul>
+
+    <%= link_to badge_path(badge) do %>
+        <li>
+          <%= badge.image_url %>
+        </li>
+      </ul>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>

@@ -14,7 +14,7 @@
 
 .profile-container {
   background-color: $purple-main;
-  height: 160px;
+  height: 152px;
   margin-top: 63px;
   width: 100%;
   position: relative;
@@ -40,37 +40,19 @@
   font-size: 0.8rem;
 }
 
-// Styling for the XP bar (confusing af for now)
-
-.xp-container {
-  position: relative;
-  width: auto;
+// Styling for the XP bar
+.progress-bar-striped {
+  color: $our-white;
+  background-color: $purple-main;
 }
 
-.xp-container p {
-  font-size: 0.8rem;
-  text-align: center;
-  color: #FFFFFF;
+.progress-bar {
   opacity: 0.6;
 }
 
-.progress-bar-main {
-  border: 4px solid #FFFFFF;
-  border-radius: 25px;
+.progress-bar-animated {
   opacity: 0.6;
-  position: absolute;
-  bottom: -32px;
-  width: 100%;
 }
-
-.progress-bar-xp {
-  border: 4px solid #FFFFFF;
-  border-radius: 25px;
-  opacity: 1;
-  position: absolute;
-  bottom: -32px;
-}
-
 
 // CSS for sidebar tabs
 
@@ -88,27 +70,31 @@
   width: auto;
   display: flex;
   align-items: center;
+  color: $our-black;
 
   &:hover {
   border-radius: 60px;
   background-color:  #FFFFFF;
   opacity: 1;
   text-align: left;
+  text-decoration: none;
+  color: $our-black;
   }
 }
 
-
-// add drop shadow to the pill when active (like an active tab)
 
 .main-icon {
   color: $purple-main;
   font-size: 22px;
 }
 
+// add drop shadow to the pill when active (like an active tab)
+
 .active-tab {
   border-radius: 60px;
   background-color:  #FFFFFF;
   opacity: 1;
   text-align: left;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
