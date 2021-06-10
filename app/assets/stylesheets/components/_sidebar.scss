@@ -70,12 +70,15 @@
   width: auto;
   display: flex;
   align-items: center;
+  color: $our-black;
 
   &:hover {
   border-radius: 60px;
   background-color:  #FFFFFF;
   opacity: 1;
   text-align: left;
+  text-decoration: none;
+  color: $our-black;
   }
 }
 

@@ -15,9 +15,12 @@
   </div>
 
   <ul class="tabs-container mt-3 flex-column">
-    <li class="sidebar-tab p-3 m-1">
-      <i class="main-icon fas fa-capsules ml-2"></i><span class="ml-3">Your Capsules</span>
-    </li>
+
+    <%= link_to inbox_path, class: "sidebar-tab p-3 m-1" do%>
+      <li >
+        <i class="main-icon fas fa-capsules ml-2"></i><span class="ml-3">Your Capsules</span>
+      </li>
+    <% end %>
 
     <li class="sidebar-tab p-3 m-1">
       <i class="main-icon fas fa-stopwatch ml-2"></i><span class="ml-3">Incoming</span>
@@ -39,9 +42,11 @@
 
     </li>
 
-    <li class="sidebar-tab p-3 m-1">
-      <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
-    </li>
+    <%= link_to badges_path, class: "sidebar-tab p-3 m-1" do %>
+      <li>
+        <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
+      </li>
+    <% end %>
   </ul>
 
 </div>

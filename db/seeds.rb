@@ -13,6 +13,7 @@ UserBadge.destroy_all
 Capsule.destroy_all
 Category.destroy_all
 User.destroy_all
+Badge.destroy_all
 
 
 puts "Generating 10 Users..."
@@ -74,5 +75,29 @@ User.all.each do |user|
     Recipient.create(capsule: new_capsule, user: receiver)
   end
 end
+
+puts "Creating a few badges..."
+
+
+Badge.create(
+  title: "Level 1",
+  hint: "Start sending capsules",
+  description: "You've sent your first capsule!",
+  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  )
+
+Badge.create(
+  title: "Level 5",
+  hint: "Keep sending capsules",
+  description: "You've sent enough capsules to become a Time Traveller Adventurer now!",
+  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  )
+
+Badge.create(
+  title: "Level 10",
+  hint: "Keep sending capsules",
+  description: "You've sent enough capsules to become a Time Traveller Master now!",
+  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  )
 
 puts "All Done!"
