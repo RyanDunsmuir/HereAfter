@@ -7,7 +7,7 @@ class Capsule < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   belongs_to :category
 
-  #validates :user, :category, :arrival_date, :title, presence: true
+  validates :category, :arrival_date, :title, presence: true
 end
 
 # capsule.owner > who made the capsules
