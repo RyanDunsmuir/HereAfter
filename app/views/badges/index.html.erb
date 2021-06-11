@@ -5,19 +5,16 @@
     <h1>Your Badges</h1>
   </div>
 
-  <div class="container">
+  <div class="cards mb-5">
+    <% @badges.each do |badge| %>
 
-    <% @badges.each do |badge|%>
-    <ul>
+        <%= link_to badge_path(badge), class: "card-trip" do %>
+          <%= image_tag(badge.image_url, class: "badge-image") %>
 
-    <%= link_to badge_path(badge) do %>
-        <li>
-          <%= badge.image_url %>
-        </li>
-      </ul>
-      <% end %>
+            <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
+
+        <% end %>
     <% end %>
 
-  </div>
 
-</div>
+  </div>
