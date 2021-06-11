@@ -1,6 +1,6 @@
 class CapsulesController < ApplicationController
   def create
-    correct_category = Category.all[params[:capsule][:category].to_i]
+    correct_category = Category.find([params[:capsule][:category].to_i]).first
     @capsule = Capsule.new(capsule_params)
     @capsule.category = correct_category
     @capsule.owner = current_user
