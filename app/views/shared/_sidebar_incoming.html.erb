@@ -22,19 +22,20 @@
       </li>
     <% end %>
 
-    <%= link_to inbox_path, class: "active-tab sidebar-tab pages p-3 m-1" do%>
+    <%= link_to incoming_path, class: "active-tab sidebar-tab pages p-3 m-1" do%>
       <li>
         <i class="main-icon fas fa-stopwatch ml-2"></i><span class="ml-3">Incoming</span>
       </li>
     <% end %>
 
-
-      <li class="p-3 m-1 sidebar-tab" >
+    <%= link_to outgoing_path, class: "sidebar-tab pages p-3 m-1" do%>
+      <li>
         <i class="main-icon fas fa-paper-plane ml-2"></i><span class="ml-3">Outgoing</span>
       </li>
+    <% end %>
 
-
-    <li class="sidebar-tab p-3 m-1">
+    <%= link_to opened_path, class: "sidebar-tab pages p-3 m-1" do%>
+    <li>
 
       <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#5A189A"/>
@@ -44,6 +45,7 @@
      <span class="m-1 ml-3">Opened</span>
 
     </li>
+    <% end %>
 
     <%= link_to badges_path,class: "sidebar-tab badges p-3 m-1" do %>
       <li>
