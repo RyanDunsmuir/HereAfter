@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   before_action :set_users_and_categories, except: [:home]
 
   def home
-
   end
 
   def inbox
