@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/inbox' => 'pages#inbox', :as => :inbox
+  get '/incoming' => 'pages#incoming', :as => :incoming
+  get '/outgoing' => 'pages#outgoing', :as => :outgoing
+  get '/opened' => 'pages#opened', :as => :opened
 
   # post '/capsules' => 'capsules#create', :as => :capsules
   # delete '/capsule/:id' => 'capsules#destroy', :as => :capsule

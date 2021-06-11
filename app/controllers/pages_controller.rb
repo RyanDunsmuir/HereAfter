@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!;
+  skip_before_action :authenticate_user!, only: [:inbox]
+  before_action :set_users_and_categories, except: [:home]
 
   def home
 
@@ -21,11 +22,22 @@ class PagesController < ApplicationController
     end.compact.sort_by(&:arrival_date).reverse
 
     @inboxcaps = caps_arrived_unread + caps_not_arrived + caps_opened
+  end
 
-    @capsules = current_user.capsules
-    @owned_capsules = current_user.owned_capsules
-    @categories = Category.all
-    @users = get_user_list(User.all)
+  def incoming
+    @inboxcaps = current_user.capsules.map do |capsule|
+      capsule if capsule.arrival_date > Date.today
+    end.compact.sort_by(&:arrival_date)
+  end
+
+  def outgoing
+    @inboxcaps = current_user.owned_capsules
+  end
+
+  def opened
+    @inboxcaps = current_user.capsules.map do |capsule|
+      capsule if capsule.read == true
+    end.compact.sort_by(&:arrival_date).reverse
   end
 
   def test
@@ -37,5 +49,10 @@ class PagesController < ApplicationController
     users.map do |user|
       "#{user.first_name} #{user.last_name} - #{user.username}"
     end.sort
+  end
+
+  def set_users_and_categories
+    @categories = Category.all
+    @users = get_user_list(User.all)
   end
 end
