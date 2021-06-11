@@ -40,8 +40,8 @@
 
 <% elsif capsule.read == false %>
 
-<a href="#" data-toggle="modal" data-target=".capsule_open_bd-example-modal-<%= capsule.id %>">
-<div class="inbox-card">
+<div data-toggle="modal" data-target=".capsule_open_bd-example-modal-<%= capsule.id %>">
+<div class="inbox-card" id="unread-hover">
     <div class="inbox-card-left">
       <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
       <div class="name-date-sent">
@@ -55,10 +55,17 @@
         </div>
       </div>
     </div>
-    <div class="inbox-timer-title" id="unread-cap-text">
-      <h2>
-        <strong>Ready to <i class="main-icon fas fa-stopwatch"></i>pen!</strong>
-      </h2>
+    <div class="arrived-and-date">
+      <div class="inbox-timer-title" id="unread-cap-text">
+        <h2>
+          <strong>Ready to <i class="main-icon fas fa-stopwatch"></i>pen!</strong>
+        </h2>
+      </div>
+      <div class="date-on-hover">
+        <h3>
+        Sent: <%= capsule.created_at.strftime("%d/%m/%Y") %>
+        </h3>
+      </div>
     </div>
     <div class="inbox-card-right">
     <div class="inbox-right-details">
@@ -73,7 +80,7 @@
 </div>
 <%= render 'shared/capsule_open', capsule: capsule %>
 
-</a>
+</div>
 
 <!-- ARRIVED AND OPENED -->
 
