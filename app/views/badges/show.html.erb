@@ -5,19 +5,21 @@
     <h1><%= @badge.title %> Badge</h1>
   </div>
 
-  <div class="container">
     <%= link_to badges_path do %>
-      <i class="fas fa-chevron-circle-left"></i>
+      <i class="back-button fas fa-chevron-circle-left m-3"></i>
     <% end %>
 
-    <ul>
-      <li>
-        <%= @badge.title %> <br>
-        <%= @badge.description %> <br>
-        <%= @badge.image_url %>
-      </li>
-    </ul>
 
+  <div class="container">
+
+    <div class="card-product m-3">
+      <%= image_tag(@badge.image_url, class: "badge-image-show") %>
+      <div class="card-product-infos">
+        <h3 class="badge-description"> <em><%= @badge.description %></em> </h3>
+
+      </div>
+    </div>
   </div>
 
 </div>
+

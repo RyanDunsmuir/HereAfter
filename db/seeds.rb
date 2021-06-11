@@ -82,22 +82,30 @@ puts "Creating a few badges..."
 Badge.create(
   title: "Level 1",
   hint: "Start sending capsules",
-  description: "You've sent your first capsule!",
-  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  description: "Congrats on your first capsule! You are now a Time Traveller Rookie!",
+  image_url: "https://lh3.googleusercontent.com/0lYOpzNuaSOIfiGFoDrQpHOMRY9DoRMoIaDarWgTttInRXqEx8dk6Vp35d1XIQE6Xefv1ioX3nxNRmgn_GtLle4hwT4znTDZlfykYjc3g_KDAo79PEHey7Q-cLSg-ExGurvwEHxeug=w2400"
   )
 
 Badge.create(
   title: "Level 5",
-  hint: "Keep sending capsules",
-  description: "You've sent enough capsules to become a Time Traveller Adventurer now!",
-  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  hint: "Send more capsules",
+  description: "Time travelling is becoming your routine... You are now a Time Traveller Adventurer!",
+  image_url: "https://lh3.googleusercontent.com/RMDJi0D_fbY0eUisaBIF3GkDoEFoLoHCNyucXWC3bz_Vkz73o5N_Img9oK7xDAsQfPE5O_MBoGQpRT37vhYXXeciSnV_ESl9LvTbdd7JqSt4j39fOl8gwd3LZ2KCuuhjVZtyQp4AFQ=w2400"
   )
 
 Badge.create(
   title: "Level 10",
   hint: "Keep sending capsules",
-  description: "You've sent enough capsules to become a Time Traveller Master now!",
-  image_url: "http://2.bp.blogspot.com/_V_DAVEZE8qg/TLVEy0ePIeI/AAAAAAAAHPI/Y55mpN0wRkw/s400/supermayor_big.png"
+  description: "You've sent enough capsules to become a Time Traveller Master! Go brag to your friends about it.",
+  image_url: "https://lh3.googleusercontent.com/2fOje84e28DU8cz4k7k4M8BhG7Jt3VTkRsqblcEmzx4OTPyKS1OCaXap3800EkAUXnEyjE4Fe_IW2nsjz8WZecRZimYlBTbAFzGHXRJXwUdyzqme8YY8G-VLuC6Lf0V4KNtXeN-pPg=w2400"
   )
+
+Badge.create(
+  title: "Level 15",
+  hint: "Keep doing what you're doing son",
+  description: "Your time travelling abilities are comparable to Seb-Jesus' coding abilities, you've become a Time Traveller Grandmaster now! A title very few possess...",
+  image_url: "https://lh3.googleusercontent.com/tcQsBSNpoCM9ElEcxtRmtsBywBBinmkSn4Zaph76e58iMdFt9ZWnHOSXkC5tER0bhJSsGqlBS9fuCib2CQykdlYZhd4xhkhoyEHmduEufbgFb8STUozMAoFtOzgbyt4IU5lwbvCqsA=w2400"
+  )
+
 
 puts "All Done!"
