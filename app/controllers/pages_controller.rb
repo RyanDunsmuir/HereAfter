@@ -1,10 +1,8 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:inbox]
+  skip_before_action :authenticate_user!;
 
   def home
-    @inboxcaps = current_user.capsules.order(:arrival_date).reverse
-    @categories = Category.all
-    @users = get_user_list(User.all)
+
   end
 
   def inbox

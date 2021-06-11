@@ -1,1 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.4)), url(https://images.unsplash.com/photo-1566410812682-b57730be65ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80);">
+  <div class="container-main ">
+    <div class="">
+      <%= image_tag "logo-main-hereafter.png"  %>
+    </div>
+    <h1>Comunicate with tomorrow, today!</h1>
+    <p class="mt-3">Send capsules to yourself or your loved ones to be opened in the future.</p>
 
+    <div class="wrapper d-flex justify-content-center">
+      <%= link_to "Sign Up Now!", "", data: {toggle: "modal", target: ".signin_bd-example-modal"}, class: "primary-button sign-up mt-3" %>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/signup_form' %>
