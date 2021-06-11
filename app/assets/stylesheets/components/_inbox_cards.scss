@@ -169,4 +169,23 @@ body a {
   100% { color: #5A189A; }
 }
 
+.arrived-and-date {
+  display: flex;
+}
 
+.date-on-hover h3 {
+  opacity: 0;
+  color: #d9c3f7;
+  font-size: 18px;
+  margin-bottom: 0;
+  padding-top: 13px;
+  margin-left: 80px;
+
+}
+
+#unread-hover {
+  &:hover {
+    background: #f2eafc;
+    border-bottom: 2px solid #f2eafc;
+  }
+}
