@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.banner  {
+    height: 89.7vh;
+    background-size: cover;
+
+}
+.container-main {
+    text-align: center;
+    color: $purple-main;
+    padding: 50px;
+    opacity: none;
+    padding-top: 200px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-up {
+    color: white;
+}
+
+
