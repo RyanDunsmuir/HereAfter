@@ -7,19 +7,9 @@
 </div>
 
 <div class="inbox-container">
-  <!-- arrived & unread capsules -->
-  <% Capsule.arrived.unread.each do |capsule| %>
-   <%= render 'shared/inbox_capsule_card_unread', capsule: capsule %>
-  <% end %>
 
-  <!-- not arrived capsules -->
-  <% Capsule.not_arrived.each do |capsule| %>
-   <%= render 'shared/inbox_capsule_card_not_arrived', capsule: capsule %>
-  <% end %>
-
-  <!-- arrived & read -->
-  <% Capsule.arrived.read.each do |capsule| %>
-   <%= render 'shared/inbox_capsule_card_read', capsule: capsule %>
+  <% @inboxcaps.each do |capsule| %>
+   <%= render 'shared/inbox_capsule_card', capsule: capsule %>
   <% end %>
 
 </div>
