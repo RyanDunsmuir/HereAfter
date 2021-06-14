@@ -21,7 +21,7 @@ puts "Generating 10 Users..."
 10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  email = "#{Faker::Name.first_name}@gmail.com"
+  email = "#{first_name}@gmail.com"
   username = Faker::Games::Pokemon.name.strip
   password = '123456'
   user = User.new(first_name: first_name, last_name: last_name, email: email, username: username, password: password )
@@ -31,7 +31,7 @@ end
 
 puts "Generating categories..."
 
-categories = %w[Birthday NewYears Wedding Graduation Confession Anniversary Festival Prediction]
+categories = %w[General Birthday NewYears Wedding Graduation Confession Anniversary Festival Prediction Inheritance]
 
 categories.each do |category|
   new_category = Category.new(name: category)

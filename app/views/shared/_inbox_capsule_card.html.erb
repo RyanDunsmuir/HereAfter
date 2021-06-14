@@ -1,8 +1,7 @@
 
 <!-- NOT ARRIVED YET - TIMER COUNTING DOWN -->
 
-<% notarrived = capsule.arrival_date.to_f > capsule.created_at.to_f %>
-<% if notarrived %>
+<% if Capsule.not_arrived %>
 
 <div class="inbox-card">
   <div class="inbox-card-left">
