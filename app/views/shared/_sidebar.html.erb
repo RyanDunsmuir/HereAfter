@@ -16,37 +16,139 @@
 
   <ul class="tabs-container mt-3 flex-column">
 
-    <%= link_to inbox_path, class: "sidebar-tab pages p-3 m-1" do%>
-      <li>
-        <i class="main-icon fas fa-capsules ml-2"></i><span class="ml-3">Your Capsules</span>
-      </li>
+
+
+
+<!-- ---------------------- YOUR CAPSULES TAB ------------------------------ -->
+
+    <!-- Adds class active-tab to Your Capsules tab -->
+    <% if current_page?(controller: 'pages', action: 'inbox') %>
+
+      <%= link_to inbox_path, class: "active-tab sidebar-tab pages p-3 m-1" do%>
+        <li>
+          <i class="main-icon fas fa-capsules ml-2"></i><span class="ml-3">Your Capsules</span>
+        </li>
+      <% end %>
+
+    <!-- Removes class active-tab to Your Capsules tab -->
+    <% else %>
+
+      <%= link_to inbox_path, class: "sidebar-tab pages p-3 m-1" do%>
+        <li>
+          <i class="main-icon fas fa-capsules ml-2"></i><span class="ml-3">Your Capsules</span>
+        </li>
+      <% end %>
+
     <% end %>
 
-    <li class="sidebar-tab p-3 m-1">
-      <i class="main-icon fas fa-stopwatch ml-2"></i><span class="ml-3">Incoming</span>
-    </li>
-
-    <li class="p-3 m-1 sidebar-tab" >
-      <i class="main-icon fas fa-paper-plane ml-2"></i><span class="ml-3">Outgoing</span>
-    </li>
 
 
-    <li class="sidebar-tab p-3 m-1">
 
-      <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#5A189A"/>
-        <path d="M10 11H5.5C2.46243 11 -2.65552e-07 8.53757 0 5.5C2.65553e-07 2.46243 2.46243 -2.65552e-07 5.5 0L10 3.93403e-07L10 11Z" fill="#5A189A"/>
-      </svg>
+<!-- --------------------------- INCOMING TAB ------------------------------ -->
 
-     <span class="m-1 ml-3">Opened</span>
+    <!-- Adds class active-tab to Incoming tab -->
+    <% if current_page?(controller: 'pages', action: 'incoming') %>
 
-    </li>
+      <%= link_to incoming_path, class: "active-tab sidebar-tab pages p-3 m-1" do%>
+        <li>
+          <i class="main-icon fas fa-stopwatch ml-2"></i><span class="ml-3">Incoming</span>
+        </li>
+      <% end %>
 
-    <%= link_to badges_path,class: "sidebar-tab badges p-3 m-1" do %>
-      <li>
-        <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
-      </li>
+    <!-- Removes class active-tab to Incoming tab -->
+    <% else %>
+
+       <%= link_to incoming_path, class: "sidebar-tab pages p-3 m-1" do%>
+        <li>
+          <i class="main-icon fas fa-stopwatch ml-2"></i><span class="ml-3">Incoming</span>
+        </li>
+      <% end %>
+
     <% end %>
+
+
+
+
+<!-- --------------------------- OUTGOING TAB ------------------------------ -->
+
+    <!-- Adds class active-tab to Outgoing tab -->
+      <% if current_page?(controller: 'pages', action: 'outgoing') %>
+
+        <li class="active-tab p-3 m-1 sidebar-tab" >
+          <i class="main-icon fas fa-paper-plane ml-2"></i><span class="ml-3">Outgoing</span>
+        </li>
+
+    <!-- Removes class active-tab to Outgoing tab -->
+      <% else %>
+
+        <%= link_to outgoing_path, class: "sidebar-tab pages p-3 m-1" do%>
+          <li>
+            <i class="main-icon fas fa-paper-plane ml-2"></i><span class="ml-3">Outgoing</span>
+          </li>
+        <% end %>
+
+      <% end %>
+
+
+
+
+<!-- --------------------------- OPENED TAB -------------------------------- -->
+
+    <!-- Adds class active-tab to Opened tab -->
+      <% if current_page?(controller: 'pages', action: 'opened') %>
+        <%= link_to opened_path, class: "active-bar sidebar-tab pages p-3 m-1" do%>
+          <li>
+
+            <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#5A189A"/>
+              <path d="M10 11H5.5C2.46243 11 -2.65552e-07 8.53757 0 5.5C2.65553e-07 2.46243 2.46243 -2.65552e-07 5.5 0L10 3.93403e-07L10 11Z" fill="#5A189A"/>
+            </svg>
+
+           <span class="m-1 ml-3">Opened</span>
+
+          </li>
+        <% end %>
+
+    <!-- Removes class active-tab to Outgoing tab -->
+      <% else %>
+        <%= link_to opened_path, class: "active-bar sidebar-tab pages p-3 m-1" do%>
+          <li>
+
+            <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#5A189A"/>
+              <path d="M10 11H5.5C2.46243 11 -2.65552e-07 8.53757 0 5.5C2.65553e-07 2.46243 2.46243 -2.65552e-07 5.5 0L10 3.93403e-07L10 11Z" fill="#5A189A"/>
+            </svg>
+
+           <span class="m-1 ml-3">Opened</span>
+
+          </li>
+        <% end %>
+
+      <% end %>
+
+
+
+
+<!-- --------------------------- BADGES TAB -------------------------------- -->
+
+    <!-- Adds class active-tab to Badges tab -->
+      <% if current_page?(controller: 'badges') %>
+
+        <%= link_to badges_path,class: "active-tab sidebar-tab badges p-3 m-1" do %>
+          <li>
+            <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
+          </li>
+        <% end %>
+
+    <!-- Removes class active-tab to Badges tab -->
+      <% else %>
+
+        <%= link_to badges_path,class: "sidebar-tab badges p-3 m-1" do %>
+          <li>
+            <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
+          </li>
+        <% end %>
+      <% end %>
 
   </ul>
 
