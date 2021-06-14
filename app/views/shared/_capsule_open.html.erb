@@ -4,26 +4,28 @@
     <div class="modal-content" style="border-radius: 25px;">
 
       <div class="modal-header">
-
+        <div>
         <h2 class="ml-4 mt-4"><%= capsule.title %> </h2>
-
-
-<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-
+          <p>
+            <em class='details-open ml-4 mt-4' id="sent-date">Sent on <%= capsule.created_at.strftime("%d/%m/%Y")  %> by <%= capsule.owner.first_name.capitalize %> and arrived on <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
+          </p>
+        </div>
+          <div class="open-avatar mr-4 mt-4"><%= capsule.owner.first_name[0].upcase %></div>
       </div>
 
       <div class="modal-body ml-4">
         <p><%= capsule.message %></p>
       </div>
-      <%= link_to capsule_path(capsule), method: :patch, class: "btn btn-block m-4 primary-button" do %>
-        Mark as read
-      <% end %>
-      <!-- <button class="btn m-4 primary-button" data-dismiss="modal" aria-label="Close">Done</button>
- -->
+      <div class="capsule-buttons-align">
+        <%= link_to capsule_path(capsule), method: :delete, class: "btn btn-block m-4 primary-button" do %>
+          Delete
+        <% end %>
+        <%= link_to capsule_path(capsule), method: :patch, class: "btn btn-block m-4 primary-button" do %>
+          Mark as read
+        <% end %>
       </div>
     </div>
+  </div>
 </div>
 
 

@@ -1,0 +1,31 @@
+.capsule-buttons-align {
+    display: flex;
+    justify-content: center;
+}
+
+
+.capsule-open-owner-name {
+    text-align: right;
+}
+
+.details-open {
+    font-size: 8px;
+}
+
+.open-avatar {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    margin-top: 0px;
+    background: $purple-main-lighter;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: white;
+    min-width: 50px;
+    &:hover {
+      opacity: 1;
+    }
+  }
