@@ -37,6 +37,6 @@ class CapsulesController < ApplicationController
   end
 
   def gain_experience
-    current_user.update(experience: current_user.experience + 10)
+    current_user.update(experience: current_user.experience + 10) unless current_user.experience == 800
   end
 end

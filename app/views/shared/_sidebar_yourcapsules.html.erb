@@ -6,13 +6,24 @@
   <% end %>
     <a href="<%= edit_user_registration_path %>"><%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %></a>
 
-    <p class="traveller-info">Time Traveller - Level <%= define_level(current_user)%></p>
+    <p class="traveller-info mb-0">Time Traveller <%= define_title(current_user) %></p>
+    <p class="traveller-info mb-1"> <strong>Level <%= define_level(current_user)%></strong> </p>
 
-  <div class="progress" style="height: 14px;">
-    <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress_bar(current_user) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_bar(current_user) %>%"><%= progress_bar(current_user) %>%</div>
-  </div>
+  <% if define_level(current_user) >= 15 %>
 
-  </div>
+    <p class="text-center traveller-info" style="opacity: 1; font-size: 1rem;"> 🏆 MAX LEVEL 🏆 </p>
+
+  <% else %>
+
+    <div class="progress" style="height: 12px;">
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress_bar(current_user) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_bar(current_user) %>%"></div>
+    </div>
+
+    <div class="progress-percentage m-1 text-center"> <p><%= progress_bar(current_user) %>%</p> </div>
+  <% end %>
+
+
+</div>
 
   <ul class="tabs-container mt-3 flex-column">
 
