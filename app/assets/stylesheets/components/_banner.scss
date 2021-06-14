@@ -1,0 +1,25 @@
+.background_video {
+ width: 100vw;
+ height: 100vh;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
+
+.text-dropshadow {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.filter-video {
+  background: linear-gradient(217deg, rgba(51, 51, 51, .9), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(90,24,154, .7), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(233, 225, 241,.8), rgba(0,0,255,0) 70.71%);
+}
+
+
+// linear-gradient(217deg, rgba(90,24,154, .8), rgba(255,0,0,0) 70.71%),
+            // linear-gradient(127deg, rgba( 170, 137, 203,.8), rgba(0,255,0,0) 70.71%),
+            // linear-gradient(336deg, rgba(233, 225, 241,.8), rgba(0,0,255,0) 70.71%);
