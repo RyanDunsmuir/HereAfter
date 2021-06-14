@@ -6,10 +6,10 @@
   <% end %>
     <%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %>
 
-    <p class="traveller-info">Time Traveller Rookie - Level 15</p>
+    <p class="traveller-info">Time Traveller - Level <%= define_level(current_user)%></p>
 
   <div class="progress" style="height: 14px;">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 83%">83%</div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress_bar(current_user) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_bar(current_user) %>%"><%= progress_bar(current_user) %>%</div>
   </div>
 
   </div>

@@ -1,7 +1,7 @@
 
 <!-- NOT ARRIVED YET - TIMER COUNTING DOWN -->
 
-<% notarrived = capsule.arrival_date.to_time.to_f > capsule.created_at.to_f %>
+<% notarrived = capsule.arrival_date.to_f > capsule.created_at.to_f %>
 <% if notarrived %>
 
 <div class="inbox-card">
@@ -18,7 +18,7 @@
   </div>
   <div class="inbox-timer-title">
     <h2>
-      <strong><i class="main-icon fas fa-stopwatch"></i>pens In:</strong> <p id="countdown" data-arrival="<%= capsule.arrival_date %>"></p>
+      <strong><i class="main-icon fas fa-stopwatch"></i>pens In:</strong> <p id="countdown" data-arrival="<%= capsule.arrival_date %>">Calculating...</p>
     </h2>
   </div>
   <div class="inbox-card-right">

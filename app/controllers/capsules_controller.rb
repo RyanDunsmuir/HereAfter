@@ -8,6 +8,9 @@ class CapsulesController < ApplicationController
 
     recipient = Recipient.new(user: User.where(first_name: params[:capsule][:users].split[0]).first, capsule: @capsule)
     recipient.save
+
+    gain_experience
+
     # no need for app/views/capsules/create.html.erb
     redirect_to inbox_path
   end
@@ -31,5 +34,9 @@ class CapsulesController < ApplicationController
 
   def capsule_params
     params.require(:capsule).permit(:arrival_date, :title, :message)
+  end
+
+  def gain_experience
+    current_user.update(experience: current_user.experience + 10)
   end
 end

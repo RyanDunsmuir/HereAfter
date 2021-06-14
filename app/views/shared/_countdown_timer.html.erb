@@ -1,6 +1,6 @@
 <!-- Display the countdown timer in an element -->
 <% if capsule.arrival_date.to_time.to_f > capsule.created_at.to_f %>
-  <h2><strong><i class="main-icon fas fa-stopwatch"></i>pens In:</strong> <p id="countdown" data-arrival="<%= capsule.arrival_date %>"></p></h2>
+  <h2><strong><i class="main-icon fas fa-stopwatch"></i>pens In:</strong> <p id="countdown" data-arrival="<%= capsule.arrival_date %>">Calculating...</p></h2>
 <% else %>
   <h2 id="card-title" ><%= capsule.title %></h2>
 <% end %>

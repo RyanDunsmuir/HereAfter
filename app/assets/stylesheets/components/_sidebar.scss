@@ -41,17 +41,14 @@
 }
 
 // Styling for the XP bar
-.progress-bar-striped {
-  color: $our-white;
-  background-color: $purple-main;
-}
-
 .progress-bar {
-  opacity: 0.6;
+  color: $our-white;
+  background-color: rgba(90,24,154, 0.6);
+  border-radius: 25px;
 }
 
-.progress-bar-animated {
-  opacity: 0.6;
+.progress {
+  background-color: rgba(241, 241, 241, 0.8);
 }
 
 // CSS for sidebar tabs

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_110510) do
+ActiveRecord::Schema.define(version: 2021_06_14_095406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_110510) do
   create_table "capsules", force: :cascade do |t|
     t.bigint "owner_id", null: false
     t.bigint "category_id", null: false
-    t.date "arrival_date", null: false
+    t.datetime "arrival_date", null: false
     t.boolean "hidden", default: true
     t.text "message"
     t.text "title", null: false
