@@ -18,10 +18,10 @@
         <% @new_capsule = Capsule.new %>
         <%= simple_form_for @new_capsule, method: :post do |f| %>
           <%= f.input :users, as: :select, collection: @users, prompt: 'Recipient', label: false %>
-          <%= f.input :category, as: :select, collection: @categories, prompt: 'Select Category', label: false%>
-          <%= f.input :title %>
-          <%= f.input :message %>
-          <%= f.input :arrival_date %>
+          <%= f.input :category, as: :select, collection: @categories, prompt: 'Select Category', label: false %>
+          <%= f.input :title, input_html: { class: "p-3" } %>
+          <%= f.input :message, input_html: { class: "p-3" } %>
+          <%= f.input :arrival_date, as: :datetime, html5: true %>
 
       <div>
         <%= f.submit class: 'primary-button btn-block mt-4' %>
