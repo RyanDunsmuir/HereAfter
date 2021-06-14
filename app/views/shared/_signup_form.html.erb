@@ -23,23 +23,23 @@
           <%= f.input :first_name,
               required: true,
               autofocus: true,
-              input_html: { autocomplete: "First name" }%>
+              input_html: { autocomplete: "First name", class: "p-3"}%>
           <%= f.input :last_name,
               required: true,
-              input_html: { autocomplete: "Last name" }%>
+              input_html: { autocomplete: "Last name", class: "p-3"}%>
           <%= f.input :email,
               required: true,
-              input_html: { autocomplete: "email" }%>
+              input_html: { autocomplete: "email", class: "p-3"}%>
           <%= f.input :username,
               required: true,
-              input_html: { autocomplete: "username" }%>
+              input_html: { autocomplete: "username", class: "p-3"}%>
           <%= f.input :password,
               required: true,
               hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-              input_html: { autocomplete: "new-password" } %>
+              input_html: { autocomplete: "new-password", class: "p-3"} %>
           <%= f.input :password_confirmation,
               required: true,
-              input_html: { autocomplete: "new-password" } %>
+              input_html: { autocomplete: "new-password", class: "p-3"} %>
         </div>
 
 
