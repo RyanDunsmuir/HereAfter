@@ -1,0 +1,38 @@
+
+<!-- ARRIVED AND READ -->
+
+<div data-toggle="modal" data-target=".capsule_open_bd-example-modal-<%= capsule.id %>">
+  <div class="inbox-card">
+    <div class="inbox-card-left">
+      <div class="inbox-avatar">
+        <%= capsule.owner.first_name[0].upcase %>
+      </div>
+      <div class="name-date-sent">
+        <div class="capsule-owner" id="opened-capsule">
+          <h2><%= capsule.owner.first_name.capitalize %></h2>
+        </div>
+        <div class="capsule-sent">
+          <p><em class="purple-sent">Sent: </em><em id="sent-date"><%= capsule.created_at.strftime("%d/%m/%Y")  %></em></p>
+        </div>
+      </div>
+    </div>
+    <div class="inbox-timer-title">
+      <h2 id="card-title" >
+        <%= capsule.title %>
+      </h2>
+    </div>
+    <div class="inbox-card-right">
+      <div class="inbox-right-details">
+        <svg width="34" height="21" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 3.13956e-07H18.5C21.5376 3.13956e-07 24 2.46243 24 5.5C24 8.53757 21.5376 11 18.5 11H14V3.13956e-07Z" fill="#AA89CB"/>
+          <path d="M10 11H5.5C2.46243 11 -2.65552e-07 8.53757 0 5.5C2.65553e-07 2.46243 2.46243 -2.65552e-07 5.5 0L10 3.93403e-07L10 11Z" fill="#AA89CB"/>
+        </svg>
+        <div class="inbox-arrived">
+          <p><em>Arrived: <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/capsule_open', capsule: capsule %>
+</div>

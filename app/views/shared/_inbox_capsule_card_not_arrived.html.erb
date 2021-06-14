@@ -1,0 +1,31 @@
+
+<!-- NOT ARRIVED YET - TIMER COUNTING DOWN -->
+
+<div class="inbox-card">
+  <div class="inbox-card-left">
+    <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+    <div class="name-date-sent">
+      <div class="capsule-owner">
+        <h2><%= capsule.owner.first_name.capitalize %></h2>
+      </div>
+      <div class="capsule-sent">
+        <p><em class="purple-sent">Sent: </em><em id="sent-date"><%= capsule.created_at.strftime("%d/%m/%Y")  %></em></p>
+      </div>
+    </div>
+  </div>
+  <div class="inbox-timer-title">
+    <h2>
+      <strong><i class="main-icon fas fa-stopwatch"></i>pens In:</strong> <p id="countdown" data-arrival="<%= capsule.arrival_date %>">Calculating...</p>
+    </h2>
+  </div>
+  <div class="inbox-card-right">
+    <div class="inbox-right-details">
+        <div class="inbox-capsule-icon"></div>
+        <div class="inbox-arrives" id="unopened-capsule">
+          <p>
+            <em>Arrives: <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
+          </p>
+        </div>
+    </div>
+  </div>
+</div>
