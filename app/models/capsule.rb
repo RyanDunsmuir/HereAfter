@@ -11,7 +11,7 @@ class Capsule < ApplicationRecord
 
   scope :not_arrived, -> { where(arrival_date: Time.current..) }
   scope :arrived, -> { where(arrival_date: !Time.current..) }
-  scope :not_read, -> { where(read: false) }
+  scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
 end
 
