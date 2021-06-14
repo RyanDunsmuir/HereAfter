@@ -8,6 +8,11 @@ class Capsule < ApplicationRecord
   belongs_to :category
 
   validates :category, :arrival_date, :title, presence: true
+
+  scope :not_arrived, -> { where(arrival_date: Time.current..) }
+  scope :arrived, -> { where(arrival_date: !Time.current..) }
+  scope :not_read, -> { where(read: false) }
+  scope :read, -> { where(read: true) }
 end
 
 # capsule.owner > who made the capsules
