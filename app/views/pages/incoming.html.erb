@@ -6,9 +6,16 @@
     <%= link_to "+ CAPSULE", "", data: {toggle: "modal", target: ".create_capsule_bd-example-modal"}, class: "primary-button drop-shadow" %>
   </div>
   <div class="inbox-container">
-    <!-- not arrived capsules -->
-    <% current_user.capsules.not_arrived.reverse.each do |capsule| %>
-     <%= render 'shared/inbox_capsule_card_not_arrived', capsule: capsule %>
+
+    <% if current_user.capsules.empty? %>
+        <em> <h4 class="text-center mt-5" style="opacity: 0.6; letter-spacing: 0.2rem;">You don't have any capsules yet... </em>😰</h4>
+      <% else %>
+
+      <!-- not arrived capsules -->
+      <% current_user.capsules.not_arrived.reverse.each do |capsule| %>
+       <%= render 'shared/inbox_capsule_card_not_arrived', capsule: capsule %>
+      <% end %>
+
     <% end %>
   </div>
   <%= render 'shared/capsule_creation' %>

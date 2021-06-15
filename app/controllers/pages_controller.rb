@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def profile
+  end
+
   def inbox
     @outgoing = current_user.owned_capsules.order(:arrival_date)
     caps_arrived_unread = current_user.capsules.map do |capsule|
