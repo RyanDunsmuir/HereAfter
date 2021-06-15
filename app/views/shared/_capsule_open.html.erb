@@ -17,12 +17,11 @@
         <p><%= capsule.message %></p>
       </div>
       <div class="capsule-buttons-align">
-        <%= link_to capsule_path(capsule), method: :delete, class: "btn btn-block m-4 primary-button" do %>
-          Delete
+
+        <%= link_to capsule_path(capsule), method: :patch, class: "p-4 m-4 btn btn-block primary-button w-100" do %>
+          Done <i class=" ml-2 fas fa-check"></i>
         <% end %>
-        <%= link_to capsule_path(capsule), method: :patch, class: "btn btn-block m-4 primary-button" do %>
-          Mark as read
-        <% end %>
+
       </div>
     </div>
   </div>
