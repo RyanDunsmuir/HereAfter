@@ -7,7 +7,7 @@
       <div class="name-date-sent">
         <div class="capsule-owner">
           <h2>
-            <%= capsule.owner.first_name.capitalize %>
+            <%= capsule.users.first.first_name.capitalize %>
           </h2>
         </div>
         <div class="capsule-sent">
@@ -18,12 +18,12 @@
     <div class="arrived-and-date">
       <div class="inbox-timer-title" id="unread-cap-text">
         <h2>
-          <strong>Ready to <i class="main-icon fas fa-stopwatch"></i>pen!</strong>
+          <strong>Arrived and yet to be <i class="main-icon fas fa-stopwatch"></i>pened!</strong>
         </h2>
       </div>
       <div class="date-on-hover">
         <h3>
-        Sent: <%= capsule.created_at.strftime("%d/%m/%Y") %>
+        Sent on <%= capsule.created_at.strftime("%d/%m/%Y") %>
         </h3>
       </div>
     </div>

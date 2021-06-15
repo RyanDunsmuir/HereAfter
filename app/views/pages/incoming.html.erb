@@ -1,5 +1,15 @@
 <%= render 'shared/sidebar' %>
 
 <div class="body-container">
-  <%= render 'shared/inbox' %>
+  <div class="inbox-title">
+    <h1>Incoming Capsules</h1>
+    <%= link_to "+ CAPSULE", "", data: {toggle: "modal", target: ".create_capsule_bd-example-modal"}, class: "primary-button drop-shadow" %>
+  </div>
+  <div class="inbox-container">
+    <!-- not arrived capsules -->
+    <% current_user.capsules.not_arrived.reverse.each do |capsule| %>
+     <%= render 'shared/inbox_capsule_card_not_arrived', capsule: capsule %>
+    <% end %>
+  </div>
+  <%= render 'shared/capsule_creation' %>
 </div>
