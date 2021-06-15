@@ -47,8 +47,14 @@
 
 <div class="navbar navbar-expand-sm navbar-light desktop-nav navbar-lewagon drop-shadow">
 
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "logo-main-hereafter.png" %>
+  <% if user_signed_in? %>
+    <%= link_to inbox_path, class: "navbar-brand" do %>
+      <%= image_tag "logo-main-hereafter.png" %>
+    <% end %>
+  <% else %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo-main-hereafter.png" %>
+    <% end %>
   <% end %>
 
 
@@ -57,9 +63,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to  class: "nav-link" do %>
-            <i class="fas fa-bell nav-icon"></i>
-          <% end %>
+          <div id="txt" class="clock"></div>
+          <div class="hourglass" id="hourglass-size"></div>
         </li>
         <li class="nav-item dropdown">
           <%= button_tag "/assets/images/cog-solid.svg", class: "btn btn dropdown-toggle", type: "button", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>

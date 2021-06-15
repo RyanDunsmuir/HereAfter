@@ -4,7 +4,7 @@
   <div class="profile-container p-3">
 
     <% if user_signed_in? %>
-      <h4 class="username"><%= "#{current_user.first_name } #{current_user.last_name}" %></h4>
+      <h4 class="username"><%= "#{current_user.first_name }" %></h4>
     <% end %>
       <a href="<%= edit_user_registration_path %>"><%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %></a>
 
