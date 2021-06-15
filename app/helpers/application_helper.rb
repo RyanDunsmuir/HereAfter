@@ -48,4 +48,8 @@ module ApplicationHelper
       "Rookie"
     end
   end
+
+  def current_controller?(options = {})
+    options[:controller] == params[:controller]
+  end
 end

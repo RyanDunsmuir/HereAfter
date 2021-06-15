@@ -1,6 +1,7 @@
 .back-button {
   color: $purple-main-lighter;
   font-size: 32px;
+  transition: $standard-transition;
   &:hover {
     color: $purple-main;
   }

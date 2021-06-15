@@ -56,9 +56,6 @@
   color: $our-white;
   opacity: 0.6;
   font-size: 0.8rem;
-  &:hover {
-    opacity: 0.6;
-  }
 }
 
 // CSS for sidebar tabs
@@ -78,6 +75,7 @@
   display: flex;
   align-items: center;
   color: $our-black;
+  transition: $standard-transition;
 
   &:hover {
   border-radius: 60px;
