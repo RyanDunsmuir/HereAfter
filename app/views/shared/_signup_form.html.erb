@@ -43,12 +43,12 @@
         </div>
 
 
-       <div class="signup-link mb-3">
-        <span>Already have an account? <%= link_to "Log in", new_session_path(resource_name) %> instead :)</span>
-       </div>
-       <div class="form-actions ">
-        <%= f.button :submit, "Sign up", :class => "primary-button btn-block" %>
+       <div class="form-actions">
+        <%= f.button :submit, "Sign up", :class => "primary-button btn-block mt-4" %>
       </div>
+
+        <%= link_to "Log in", new_session_path(resource_name), class: "secondary-button mb-3 mt-2 w-100 btn-block" %>
+
      <% end %>
      </div>
      </div>
