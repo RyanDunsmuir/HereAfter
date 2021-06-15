@@ -19,12 +19,17 @@
   margin-top: 63px;
   width: 100%;
   position: relative;
+  h4 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 24px;
+  }
 }
 
 .avatar-profile {
   position: absolute;
-  right: 16px;
-  top: 32px;
+  right: 20px;
+  top: 20px;
   z-index: 0;
 }
 
