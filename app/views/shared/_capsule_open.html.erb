@@ -1,21 +1,38 @@
 <div class="modal fade capsule_open_bd-example-modal-<%= capsule.id %>"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
   <div class="modal-dialog modal-dialog-centered">
 
     <div class="modal-content" style="border-radius: 25px;">
 
       <div class="modal-header">
-        <div>
-        <h2 class="ml-4 mt-4"><%= capsule.title %> </h2>
-          <p>
-            <em class='details-open ml-4 mt-4' id="sent-date">Sent on <%= capsule.created_at.strftime("%d/%m/%Y")  %> by <%= capsule.owner.first_name.capitalize %> and arrived on <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
-          </p>
+
+        <div class="capsule-title-container">
+          <div class="capsule-details-container">
+            <h2 class="mt-4 ml-4">From <strong><%= capsule.owner.first_name.capitalize %> <%= capsule.owner.last_name.first.capitalize %>.</strong> </h2>
+            <div class="capsule-details-dates ml-4">
+              <div>
+                <p><em class="details-open" id="sent-date">Sent on <%= capsule.created_at.strftime("%d/%m/%Y") %></p>
+              </div>
+              <div>
+              <p>
+                Arrived on <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
+              </p>
+              </div>
+            </div>
+          </div>
         </div>
-          <div class="open-avatar mr-4 mt-4"><%= capsule.owner.first_name[0].upcase %></div>
+
+        <div class="mx-4 my-3">
+          <%= render 'shared/capsule_avatar', capsule: capsule %>
+        </div>
+
       </div>
 
-      <div class="modal-body ml-4">
-        <p><%= capsule.message %></p>
+      <div class="modal-body m-4">
+        <h2 class="text-left"><%= capsule.title %> </h2>
+        <p class="text-left"><%= capsule.message %></p>
       </div>
+
       <div class="capsule-buttons-align">
 
         <%= link_to capsule_path(capsule), method: :patch, class: "p-4 m-4 btn btn-block primary-button w-100" do %>
@@ -23,6 +40,7 @@
         <% end %>
 
       </div>
+
     </div>
   </div>
 </div>

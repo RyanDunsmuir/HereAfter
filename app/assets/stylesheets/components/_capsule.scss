@@ -1,3 +1,21 @@
+.capsule-title-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.capsule-details-container {
+  display: block;
+  flex-grow: 1;
+}
+
+.capsule-details-dates {
+
+  p {
+    margin: 0;
+  }
+}
+
 .capsule-buttons-align {
     display: flex;
     justify-content: center;
@@ -12,6 +30,24 @@
 .details-open {
     font-size: 8px;
     opacity: 0.6;
+}
+
+.capsule-avatar-cartoon {
+  display: flex;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 0px;
+  background: $purple-main-lighter;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  min-width: 50px;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .open-avatar {
