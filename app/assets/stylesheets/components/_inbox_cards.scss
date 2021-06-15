@@ -188,5 +188,11 @@ body a {
   &:hover {
     background: #f2eafc;
     border-bottom: 2px solid #f2eafc;
+    cursor: pointer;
+  }
+}
+
+.cap-not-arrived {
+  &:hover {
   }
 }
