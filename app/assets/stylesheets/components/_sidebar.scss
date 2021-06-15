@@ -33,6 +33,23 @@
   z-index: 0;
 }
 
+.sidebar-avatar-default {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 0px;
+  background: $purple-main-lighter;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .username {
   color: $our-white;
   font-size: 20px;
@@ -61,6 +78,7 @@
   color: $our-white;
   opacity: 0.6;
   font-size: 0.8rem;
+
 }
 
 // CSS for sidebar tabs

@@ -1,0 +1,27 @@
+
+// .avatars-grid {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+//   grid-gap: 0px;
+// }
+
+.avatars-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 32px 32px 40px;
+}
+
+.avatar-select-card {
+  img {
+    border-radius: 50%;
+    margin: 12px;
+    width: 100px;
+    transition: $standard-transition;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      transition: $standard-transition;
+    }
+  }
+
+}

@@ -41,6 +41,9 @@ class PagesController < ApplicationController
     end.compact.sort_by(&:arrival_date).reverse
   end
 
+  def avatar
+  end
+
   def test
   end
 
