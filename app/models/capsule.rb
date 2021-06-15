@@ -9,8 +9,9 @@ class Capsule < ApplicationRecord
 
   validates :category, :arrival_date, :title, presence: true
 
+  default_scope -> { order(arrival_date: :desc) }
   scope :not_arrived, -> { where(arrival_date: Time.current..) }
-  scope :arrived, -> { where(arrival_date: !Time.current..) }
+  scope :arrived, -> { !not_arrived }
   scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
 end

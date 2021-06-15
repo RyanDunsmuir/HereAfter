@@ -1,3 +1,6 @@
+
+import Turbolinks from 'turbolinks';
+
 const countdownTimer = () => {
   let capsules = document.querySelectorAll('#countdown');
 
@@ -27,7 +30,8 @@ const countdownTimer = () => {
       // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
-        CapsuleCard.innerHTML = "ARRIVED";
+        Turbolinks.clearCache()
+        Turbolinks.visit("/inbox", {"action":"replace"})
       }
     }, 1000);
   }

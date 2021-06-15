@@ -8,9 +8,21 @@
 
 <div class="inbox-container">
 
-  <% @inboxcaps.each do |capsule| %>
-   <%= render 'shared/inbox_capsule_card', capsule: capsule %>
+  <!-- arrived & unread capsules -->
+  <% current_user.capsules.arrived.unread.each do |capsule| %>
+   <%= render 'shared/inbox_capsule_card_unread', capsule: capsule %>
   <% end %>
+
+  <!-- not arrived capsules -->
+  <% current_user.capsules.not_arrived.reverse.each do |capsule| %>
+   <%= render 'shared/inbox_capsule_card_not_arrived', capsule: capsule %>
+  <% end %>
+
+  <!-- arrived & read -->
+  <% current_user.capsules.arrived.read.each do |capsule| %>
+   <%= render 'shared/inbox_capsule_card_read', capsule: capsule %>
+  <% end %>
+
 
 </div>
 
