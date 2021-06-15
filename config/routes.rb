@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/incoming' => 'pages#incoming', :as => :incoming
   get '/outgoing' => 'pages#outgoing', :as => :outgoing
   get '/opened' => 'pages#opened', :as => :opened
+  get '/profile' => 'pages#profile', :as => :profile
 
   # post '/capsules' => 'capsules#create', :as => :capsules
   # delete '/capsule/:id' => 'capsules#destroy', :as => :capsule
