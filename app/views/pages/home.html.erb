@@ -1,11 +1,15 @@
-<div class="banner filter-video text-dropshadow">
+<div class="banner text-dropshadow">
   <%= video_tag "background-video-banner.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "background_video" %>
-  <div class="container-main ">
-    <div class="">
-      <%= image_tag "logo-main-hereafter.png", style: "width: 700px"  %>
+  <div class="container-main">
+
+    <div class="title-container">
+      <%= image_tag "logo_simple_hereafter.png", class: "banner-main-logo" %>
+
+      <h1> <strong class="main-title mt-3">Here<span style="color: #AA89CB;">After</span></strong> </h1>
     </div>
-    <h1>Communicate with tomorrow, today!</h1>
-    <p class="mt-3">Send capsules to yourself or your loved ones to be opened in the future.</p>
+
+    <h2 class="m-4">Communicate with tomorrow, today!</h2>
+    <h3 class="subtitle-banner m-4">Send capsules to yourself or your loved ones to be opened in the future.</h3>
 
     <div class="wrapper d-flex justify-content-center">
       <%= link_to "Sign Up Now!", "", data: {toggle: "modal", target: ".signin_bd-example-modal"}, class: "drop-shadow primary-button sign-up mt-3" %>
