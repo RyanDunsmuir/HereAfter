@@ -10,11 +10,11 @@
         <% if current_user.avatar_photo.present? %>
           <img class="avatar-profile avatar-bordered" src="<%= current_user.avatar_photo %>">
           <% else %>
-          <div class="avatar-profile avatar-bordered"><%= current_user.first_name[0].upcase %></div>
+          <div class="avatar-profile sidebar-avatar-default"><%= current_user.first_name[0].upcase %></div>
         <% end %>
       <% end %>
 
-      <p class="traveller-info mb-0">Time Traveller <%= define_title(current_user) %></p>
+      <p class="traveller-info mb-0 mt-1">Time Traveller <%= define_title(current_user) %></p>
       <p class="traveller-info mb-1 mt-3"> <strong>Level <%= define_level(current_user)%></strong> </p>
 
 <!-- If user is level 15, removes progress bar and renders this instead -->

@@ -19,8 +19,8 @@ module ApplicationHelper
     else
       levels = %w(0 10 30 50 80 110 150 200 260 330 400 480 570 670 800)
       levels.each_with_index do |level_xp, index|
-          return index + 1 if (user_xp >= level_xp.to_i && user_xp < levels[index + 1].to_i)
-        end
+        return index + 1 if (user_xp >= level_xp.to_i && user_xp < levels[index + 1].to_i)
+      end
     end
   end
 

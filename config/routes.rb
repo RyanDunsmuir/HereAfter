@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users, only: :update
   resources :capsules, only: %i[create update destroy]
   resources :badges, only: %i[index show update]
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get '/incoming' => 'pages#incoming', :as => :incoming
   get '/outgoing' => 'pages#outgoing', :as => :outgoing
   get '/opened' => 'pages#opened', :as => :opened
+  get '/avatar' => 'pages#avatar', :as => :avatar
 
   # post '/capsules' => 'capsules#create', :as => :capsules
   # delete '/capsule/:id' => 'capsules#destroy', :as => :capsule
