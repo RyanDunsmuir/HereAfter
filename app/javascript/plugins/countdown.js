@@ -14,7 +14,7 @@ const countdownTimer = () => {
       var now = new Date().getTime();
 
       // Find the distance between now and the count down date
-      var distance = countDownDate - now;
+      var distance = Math.max(countDownDate - now, 0);
 
       // Time calculations for days, hours, minutes and seconds
       var years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365.25));
@@ -23,16 +23,43 @@ const countdownTimer = () => {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Display the result in the element with id="countdown"
-      capsuleCard.innerHTML = years + "y " + days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
       // If the count down is finished, write some text
-      if (distance < 0) {
+      if (distance <= 0) {
         clearInterval(x);
         Turbolinks.clearCache()
         Turbolinks.visit("/inbox", {"action":"replace"})
       }
+
+      // Display the result in the element with id="countdown"
+      if (years > 1) {
+        capsuleCard.innerHTML = years + "y "  + days + "d " + hours + "h ";
+      } else if (years > 0) {
+        capsuleCard.innerHTML = years + "y " + days + "d " + hours + "h ";
+      } else if (days > 0) {
+        capsuleCard.innerHTML = days + "d " + hours + "h " + minutes + "m ";
+      } else if (hours > 0) {
+        capsuleCard.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+      } else if (minutes > 0) {
+        capsuleCard.innerHTML = minutes + "m " + seconds + "s ";
+      } else if (seconds > 0) {
+        capsuleCard.innerHTML = seconds + "s ";
+      }
+
+      //       if (years > 1) {
+      //   capsuleCard.innerHTML = years + " Years";
+      // } else if (years > 0) {
+      //   capsuleCard.innerHTML = years + " Year and " + days + " Days ";
+      // } else if (days > 0) {
+      //   capsuleCard.innerHTML = days + " Days and " + hours + " Hours ";
+      // } else if (hours > 0) {
+      //   capsuleCard.innerHTML = hours + " Hours, " + minutes + " Minutes and " + seconds + " Seconds ";
+      // } else if (minutes > 0) {
+      //   capsuleCard.innerHTML = minutes + " Minutes and " + seconds + " Seconds ";
+      // } else if (seconds > 0) {
+      //   capsuleCard.innerHTML = seconds + " Seconds ";
+      // }
+
+
     }, 1000);
   }
 
