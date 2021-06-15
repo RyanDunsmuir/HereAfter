@@ -6,7 +6,13 @@
     <% if user_signed_in? %>
       <h4 class="username"><%= "#{current_user.first_name } #{current_user.last_name}" %></h4>
     <% end %>
-      <a href="<%= edit_user_registration_path %>"><%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %></a>
+      <%= link_to "#" do %>
+        <% if current_user.avatar_photo.present? %>
+          <img class="avatar-profile avatar-bordered" src="<%= current_user.avatar_photo %>">
+          <% else %>
+          <div class="avatar-profile avatar-bordered"><%= current_user.first_name[0].upcase %></div>
+        <% end %>
+      <% end %>
 
       <p class="traveller-info mb-0">Time Traveller <%= define_title(current_user) %></p>
       <p class="traveller-info mb-1"> <strong>Level <%= define_level(current_user)%></strong> </p>

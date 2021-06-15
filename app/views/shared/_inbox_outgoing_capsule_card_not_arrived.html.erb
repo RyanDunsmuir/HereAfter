@@ -2,7 +2,7 @@
 
 <div class="inbox-card">
   <div class="inbox-card-left">
-    <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+    <%= render 'shared/inbox_avatar', capsule: capsule %>
     <div class="name-date-sent">
       <div class="capsule-owner">
         <h2><%= capsule.users.first.first_name.capitalize %></h2>

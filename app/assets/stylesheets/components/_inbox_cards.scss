@@ -51,6 +51,20 @@ body a {
   }
 }
 
+.inbox-avatar-cartoon {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .name-date-sent {
   margin-left: 10px;
   p {
