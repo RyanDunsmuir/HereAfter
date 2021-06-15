@@ -1,25 +1,41 @@
 <div class="sidebar" >
 
+<!-- Profile Summary -->
   <div class="profile-container p-3">
-  <% if user_signed_in? %>
-    <h4 class="username"><%= "#{current_user.first_name } #{current_user.last_name}" %></h4>
-  <% end %>
-    <a href="<%= edit_user_registration_path %>"><%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %></a>
 
-    <p class="traveller-info">Time Traveller Rookie - Level 15</p>
+    <% if user_signed_in? %>
+      <h4 class="username"><%= "#{current_user.first_name } #{current_user.last_name}" %></h4>
+    <% end %>
+      <a href="<%= edit_user_registration_path %>"><%= image_tag "https://avatars.githubusercontent.com/u/414418?v=4", class: "avatar-bordered avatar-profile", alt: "avatar-bordered" %></a>
 
-  <div class="progress" style="height: 14px;">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 83%">83%</div>
+      <p class="traveller-info mb-0">Time Traveller <%= define_title(current_user) %></p>
+      <p class="traveller-info mb-1"> <strong>Level <%= define_level(current_user)%></strong> </p>
+
+<!-- If user is level 15, removes progress bar and renders this instead -->
+
+    <% if define_level(current_user) >= 15 %>
+
+      <p class="text-center traveller-info" style="opacity: 1; font-size: 1rem;"> 🏆 MAX LEVEL 🏆 </p>
+
+<!-- If the user is below level 15, renders the progress bar with experience in percentage -->
+    <% else %>
+
+      <div class="progress" style="height: 12px;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress_bar(current_user) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_bar(current_user) %>%"></div>
+      </div>
+
+      <div class="progress-percentage m-1 text-center"> <p><%= progress_bar(current_user) %>%</p> </div>
+    <% end %>
+
   </div>
 
-  </div>
-
-  <ul class="tabs-container mt-3 flex-column">
 
 
 
 
 <!-- ---------------------- YOUR CAPSULES TAB ------------------------------ -->
+
+  <ul class="tabs-container mt-3 flex-column">
 
     <!-- Adds class active-tab to Your Capsules tab -->
     <% if current_page?(controller: 'pages', action: 'inbox') %>
@@ -96,7 +112,7 @@
 
     <!-- Adds class active-tab to Opened tab -->
       <% if current_page?(controller: 'pages', action: 'opened') %>
-        <%= link_to opened_path, class: "active-bar sidebar-tab pages p-3 m-1" do%>
+        <%= link_to opened_path, class: "active-tab sidebar-tab pages p-3 m-1" do%>
           <li>
 
             <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +127,7 @@
 
     <!-- Removes class active-tab to Outgoing tab -->
       <% else %>
-        <%= link_to opened_path, class: "active-bar sidebar-tab pages p-3 m-1" do%>
+        <%= link_to opened_path, class: "sidebar-tab pages p-3 m-1" do%>
           <li>
 
             <svg class="ml-2" width="24" height="11" viewBox="0 0 24 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,9 +148,9 @@
 <!-- --------------------------- BADGES TAB -------------------------------- -->
 
     <!-- Adds class active-tab to Badges tab -->
-      <% if current_page?(controller: 'badges') %>
+      <% if current_controller?(controller: 'badges') %>
 
-        <%= link_to badges_path,class: "active-tab sidebar-tab badges p-3 m-1" do %>
+        <%= link_to badges_path, class: "active-tab sidebar-tab badges p-3 m-1" do %>
           <li>
             <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
           </li>

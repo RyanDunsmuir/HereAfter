@@ -10,6 +10,7 @@ body a {
   justify-content:space-between;
   padding: 15px 70px 15px 15px;
   border-bottom: 2px solid rgb(240, 240, 240);
+  transition: $standard-transition;
   border-radius: 5px;
     h1, h2, h3, h4, p, em, strong {
       text-decoration: none;
