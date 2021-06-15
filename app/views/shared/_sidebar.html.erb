@@ -4,8 +4,13 @@
   <div class="profile-container p-3">
 
     <% if user_signed_in? %>
-      <h4 class="username"><%= "#{current_user.first_name }" %></h4>
+      <% if current_user.first_name.length > 11 %>
+        <h4 class="username"><%= "#{current_user.first_name[0..9]}..." %></h4>
+      <% else %>
+        <h4 class="username"><%= "#{current_user.first_name} #{current_user.last_name.first.upcase}." %></h4>
+      <% end %>
     <% end %>
+
       <%= link_to "#" do %>
         <% if current_user.avatar_photo.present? %>
           <img class="avatar-profile avatar-bordered" src="<%= current_user.avatar_photo %>">
@@ -150,7 +155,6 @@
 
 
 
-
 <!-- --------------------------- BADGES TAB -------------------------------- -->
 
     <!-- Adds class active-tab to Badges tab -->
@@ -171,6 +175,31 @@
           </li>
         <% end %>
       <% end %>
+
+
+
+<!-- --------------------------- PROFILE TAB -------------------------------- -->
+
+  <!-- Adds class active-tab to Badges tab -->
+    <% if current_page?(controller: 'pages', action: 'profile') %>
+
+      <%= link_to profile_path, class: "active-tab sidebar-tab pages p-3 m-1" do %>
+        <li>
+          <i class="main-icon fas fa-user ml-2"></i><span class="ml-3">Profile</span>
+        </li>
+      <% end %>
+
+  <!-- Removes class active-tab to Badges tab -->
+    <% else %>
+
+      <%= link_to profile_path, class: "sidebar-tab pages p-3 m-1" do %>
+        <li>
+          <i class="main-icon fas fa-user ml-2"></i><span class="ml-3">Profile</span>
+        </li>
+      <% end %>
+    <% end %>
+
+
 
   </ul>
 

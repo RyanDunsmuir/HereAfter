@@ -1,3 +1,5 @@
+// PRIMARY BUTTON \\
+
 .primary-button {
   display: flex;
   align-items: center;
@@ -27,31 +29,43 @@
   }
 }
 
-.delete-button {
+
+// SECONDARY BUTTON \\
+
+.secondary-button {
   display: flex;
   align-items: center;
-  justify-content:center;
-  border: 3px solid $red;
-  color: $red;
-  width: 150px;
-  height: 48px;
+  border: 2px solid $purple-main;
   border-radius: 28px;
-  transition: $standard-transition;
-  a {
-    opacity: 0.77;
-  }
-
+  color: $purple-main;
   font-style: normal;
+  height: 48px;
+  justify-content:center;
+  width: 150px;
+  transition: $standard-transition;
+  text-decoration: none;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 1.25px;
   text-transform: uppercase;
-  border-style: none;
+  opacity: 0.6;
+  a {
+    color: $purple-main;
+    opacity: 0.6;
+    text-decoration: none;
+
+    &:hover {
+    color: $purple-main;
+    opacity: 1;
+    text-decoration: none;
+    }
+  }
 
    &:hover {
-    color: $red;
-    text-decoration: none;
-    opacity: 0.6;
+    color: $purple-main;
+    opacity: 1;
   }
 }
+
+
