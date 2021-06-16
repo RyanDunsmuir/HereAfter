@@ -5,12 +5,13 @@
     <h1>Badges</h1>
   </div>
 
-  <div class="cards mb-5">
-    <% @badges.each do |badge| %>
-    <div class="card-trip">
-      <%= image_tag(badge.image_url, class: "badge-image") %>
-      <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
-          </div>
-      <% end %>
-  </div>
+    <div class="cards mb-5">
+      <% @badges.each do |badge| %>
+      <div class="card-trip">
+        <%= image_tag(badge.image_url, class: "badge-image") %>
+        <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
+            </div>
+        <% end %>
+    </div>
+
 </div>

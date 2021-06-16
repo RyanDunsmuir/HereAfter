@@ -29,13 +29,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { countdownTimer } from '../plugins/countdown';
 import { addActiveClass } from '../plugins/active_tab';
-
-
+import { initDeleteButtons } from '../plugins/delete_buttons';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   countdownTimer();
+  initDeleteButtons();
   // addActiveClass();
 });
 

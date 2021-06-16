@@ -13,6 +13,7 @@ body a {
   border-bottom: 2px solid rgb(240, 240, 240);
   transition: $standard-transition;
   border-radius: 5px;
+  // transition: transform .2s ease-in-out;
     h1, h2, h3, h4, p, em, strong {
       text-decoration: none;
     }
@@ -253,4 +254,31 @@ body a {
 
 .inbox-right-details {
   width: 167px;
+}
+
+.card-fade {
+  animation: 1s ease-in-out 0.5s remove;
+}
+
+@keyframes remove {
+  from {
+    transform: scale(1, 1);
+  }
+
+  30% {
+    transform: scale(1, 1);
+  }
+
+  99% {
+    transform: scale(0, 0);
+    height: 0;
+    opacity: 0;
+    display: none;
+  }
+
+  to {
+    height: 0;
+    opacity: 0;
+    display: none;
+  }
 }

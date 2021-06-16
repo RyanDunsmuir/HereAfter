@@ -1,29 +1,52 @@
 class CapsulesController < ApplicationController
   def create
-    correct_category = Category.find([params[:capsule][:category].to_i]).first
+    correct_category = Category.where(name: params[:capsule][:category]).first
     @capsule = Capsule.new(capsule_params)
     @capsule.category = correct_category
     @capsule.owner = current_user
+    local_arrival_date = @capsule.arrival_date
     @capsule.arrival_date = @capsule.arrival_date + params[:timezone_offset].to_i.minutes
     @capsule.save
 
     recipient = Recipient.new(user: User.where(first_name: params[:capsule][:users].split[0]).first, capsule: @capsule)
     recipient.save
 
+    users_badges = current_user.badges.count # 3
+    users_badges_titles = current_user.badges.map { |badge| badge.title }
+
     gain_experience
     unlock_level_badges(current_user)
-    unlock_category_badges(current_user, correct_category)
+    unlock_category_badges(current_user, @capsule.category.name)
+    unlock_midnight_badge(current_user, local_arrival_date)
 
+    new_users_badges_titles = current_user.badges.map { |badge| badge.title }
     # no need for app/views/capsules/create.html.erb
-    redirect_to inbox_path
-  end
+    if current_user.badges.count > users_badges
+      # titles = users_badges_titles - new_users_badges_titles
+      # string = ""
+
+      # titles.each do |title|
+      #   if title == titles[-1]
+      #     string += title.to_s
+      #   elsif title == titles[-2]
+      #     string += "#{title} and "
+      #   else
+      #     string += "#{title}, "
+      #   end
+      # end
+
+      redirect_to inbox_path, notice: "⭐️ You just unlocked a Badge!"
+    else
+      redirect_to inbox_path
+    end
+end
 
   def destroy
     @capsule = Capsule.find(params[:id])
     @capsule.destroy
 
     # no need for app/views/capsules/destroy.html.erb
-    redirect_back fallback_location: "/inbox"
+    # redirect_back fallback_location: "/inbox"
   end
 
   def update
@@ -65,38 +88,18 @@ class CapsulesController < ApplicationController
   end
 
   def unlock_category_badges(user, category)
-    categories = Category.all.map { |category| category.name } # ['birthday', 'confession' ... ]
+    categories = ["General", "Birthday", "Confession", "Prediction"]
     if categories.include?(category)
-      badge = Badge.where(title: "#{category}").first
+      badge = Badge.where(title: category).first
       UserBadge.create(user: user, badge: badge)
     end
   end
 
-  # def unlock_badges
-  #   unlock_level_badges
-  #   @capsule.category.downcase = category
-  #   if category == 'general'
-  #     UserBadge.create(user: current_user) if current_user.badges # badge: badgeID if user does not have badge
-  #   elsif category == 'birthday'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'newyears'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Wedding'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Confession'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Graduation'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Anniversary'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Festival'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Prediction'
-  #     UserBadge.create(user: current_user)
-  #   elsif category == 'Inheritance'
-  #     UserBadge.create(user: current_user)
-  #   end
-  # end
-
+  def unlock_midnight_badge(user, date)
+    if (date.to_f % 86_400).zero?
+      badge = Badge.where(title: "Midnight").first
+      UserBadge.create(user: user, badge: badge)
+    end
+  end
 
 end

@@ -121,10 +121,10 @@ categories.each do |category|
   print "#{category}" + "#{Category.all.count == 9 ? '.' : ', '}"
 end
 
-puts "Generating 3 Past Capsules for each User..."
+puts "Generating 5 Past Capsules for each User..."
 
 User.all.each do |user|
-  3.times do
+  5.times do
     users = User.all
     users.to_a.delete_at(user.id - 1)
 
@@ -141,10 +141,10 @@ User.all.each do |user|
   end
 end
 
-puts "Generating 3 Future Capsules for each User..."
+puts "Generating 5 Future Capsules for each User..."
 
 User.all.each do |user|
-  3.times do
+  5.times do
     users = User.all
     users.to_a.delete_at(user.id - 1)
 
@@ -167,35 +167,56 @@ Badge.create(
   title: "Level 1",
   hint: "Start sending capsules",
   description: "Congrats on your first capsule! You are now a Time Traveller Rookie!",
-  image_url: "https://lh3.googleusercontent.com/0lYOpzNuaSOIfiGFoDrQpHOMRY9DoRMoIaDarWgTttInRXqEx8dk6Vp35d1XIQE6Xefv1ioX3nxNRmgn_GtLle4hwT4znTDZlfykYjc3g_KDAo79PEHey7Q-cLSg-ExGurvwEHxeug=w2400"
+  image_url: "https://lh3.googleusercontent.com/0lYOpzNuaSOIfiGFoDrQpHOMRY9DoRMoIaDarWgTttInRXqEx8dk6Vp35d1XIQE6Xefv1ioX3nxNRmgn_GtLle4hwT4znTDZlfykYjc3g_KDAo79PEHey7Q-cLSg-ExGurvwEHxeug=w800"
   )
 
 Badge.create(
   title: "Level 5",
   hint: "Send more capsules",
   description: "Time travelling is becoming your routine... You are now a Time Traveller Adventurer!",
-  image_url: "https://lh3.googleusercontent.com/RMDJi0D_fbY0eUisaBIF3GkDoEFoLoHCNyucXWC3bz_Vkz73o5N_Img9oK7xDAsQfPE5O_MBoGQpRT37vhYXXeciSnV_ESl9LvTbdd7JqSt4j39fOl8gwd3LZ2KCuuhjVZtyQp4AFQ=w2400"
+  image_url: "https://lh3.googleusercontent.com/RMDJi0D_fbY0eUisaBIF3GkDoEFoLoHCNyucXWC3bz_Vkz73o5N_Img9oK7xDAsQfPE5O_MBoGQpRT37vhYXXeciSnV_ESl9LvTbdd7JqSt4j39fOl8gwd3LZ2KCuuhjVZtyQp4AFQ=w800"
   )
 
 Badge.create(
   title: "Level 10",
   hint: "Keep sending capsules",
   description: "You've sent enough capsules to become a Time Traveller Master! Go brag to your friends about it.",
-  image_url: "https://lh3.googleusercontent.com/2fOje84e28DU8cz4k7k4M8BhG7Jt3VTkRsqblcEmzx4OTPyKS1OCaXap3800EkAUXnEyjE4Fe_IW2nsjz8WZecRZimYlBTbAFzGHXRJXwUdyzqme8YY8G-VLuC6Lf0V4KNtXeN-pPg=w2400"
+  image_url: "https://lh3.googleusercontent.com/2fOje84e28DU8cz4k7k4M8BhG7Jt3VTkRsqblcEmzx4OTPyKS1OCaXap3800EkAUXnEyjE4Fe_IW2nsjz8WZecRZimYlBTbAFzGHXRJXwUdyzqme8YY8G-VLuC6Lf0V4KNtXeN-pPg=w800"
   )
 
 Badge.create(
   title: "Level 15",
   hint: "Keep doing what you're doing son",
   description: "Your time travelling abilities are comparable to Seb-Jesus' coding abilities, you've become a Time Traveller Grandmaster now! A title very few possess...",
-  image_url: "https://lh3.googleusercontent.com/tcQsBSNpoCM9ElEcxtRmtsBywBBinmkSn4Zaph76e58iMdFt9ZWnHOSXkC5tER0bhJSsGqlBS9fuCib2CQykdlYZhd4xhkhoyEHmduEufbgFb8STUozMAoFtOzgbyt4IU5lwbvCqsA=w2400"
+  image_url: "https://lh3.googleusercontent.com/tcQsBSNpoCM9ElEcxtRmtsBywBBinmkSn4Zaph76e58iMdFt9ZWnHOSXkC5tER0bhJSsGqlBS9fuCib2CQykdlYZhd4xhkhoyEHmduEufbgFb8STUozMAoFtOzgbyt4IU5lwbvCqsA=w800"
   )
 
 Badge.create(
-  title: "Level 15",
-  hint: "Keep doing what you're doing son",
-  description: "Your time travelling abilities are comparable to Seb-Jesus' coding abilities, you've become a Time Traveller Grandmaster now! A title very few possess...",
-  image_url: "https://lh3.googleusercontent.com/tcQsBSNpoCM9ElEcxtRmtsBywBBinmkSn4Zaph76e58iMdFt9ZWnHOSXkC5tER0bhJSsGqlBS9fuCib2CQykdlYZhd4xhkhoyEHmduEufbgFb8STUozMAoFtOzgbyt4IU5lwbvCqsA=w2400"
+  title: "Birthday",
+  hint: "Who's birthday is it today?",
+  description: "You sent someone a Birthday capsule to celebrate the day they were born!",
+  image_url: "https://lh3.googleusercontent.com/_oaN_wXk6FV8URjijtMGUQj0ExP6SH6X3a-zfwOHdZP-QIyCN9_pF4JP_fdwvb2K_Svh4UG71Hcdr5GmKBT3JeOSzm1lOGbwD_JlWcg-KbjLa5xEDeqOkI65cBVLcoP2cOy-REwHQg=w800"
+  )
+
+Badge.create(
+  title: "Confession",
+  hint: "Anything you need to get off your chest?",
+  description: "Well done for confessing, it is never easy to own upto the things we have done. Give it some time and you will know you did the right thing!",
+  image_url: "https://lh3.googleusercontent.com/GtObGGv-u1mTJ1AkznQZ3hr73SaSHoZj_WjhRe0ElDQV3vi0yZot01XBaU4VpVFVSfkfjQ0UjECUuZRcJy14kwkLenXKU207a2xpT05UHtT2gYTVNfPUlTKmWDv6v-9gsMpZLNDelA=w800"
+  )
+
+Badge.create(
+  title: "Prediction",
+  hint: "Can you predict the future?",
+  description: "What will the future hold? Who can truly know? Apparently you can! Let's see if what you predicted will become reality...",
+  image_url: "https://lh3.googleusercontent.com/apED0yA57sLA3oj5eg3mzPfeSe-nMRGimWKHuCFUcHnRmGmAJhl5vOJ4OnuE9q1_v3idmQbFuX8OEWrK7WKn6SSKZK-BVCkNRKl4hVZp2pA_5uWBkdZwexhVCeAuyJb3AhWMrOKZ2Q=w800"
+  )
+
+Badge.create(
+  title: "Midnight",
+  hint: "Are you a creature of the night?",
+  description: "What will the future hold? Who can truly know? Apparently you can! Let's see if what you predicted will become reality...",
+  image_url: "https://lh3.googleusercontent.com/njFwm-iZlaE9_lkYSttKkSwrw1ZyAWApVwCu40U80-tRt0f5nJDsu0gcYfRZFPF4vXbwtnxmEgjDmOf93X9uIKEMOe7tASlsi5EIVKYKRwHLRrh9_GpczXBwT3Zr-dctbz-wo1x0-A=w800"
   )
 
 

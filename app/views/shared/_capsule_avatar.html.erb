@@ -1,6 +1,10 @@
 
 <% if capsule.owner.avatar_photo.present? %>
-  <img class="capsule-avatar-cartoon" src="<%= capsule.owner.avatar_photo %>">
+  <%= link_to profile_id_path(capsule.owner) do %>
+    <img class="capsule-avatar-cartoon" src="<%= capsule.owner.avatar_photo %>">
+  <% end %>
 <% else %>
-  <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+  <%= link_to profile_id_path(capsule.owner) do %>
+    <div class="inbox-avatar"><%= capsule.owner.first_name[0].upcase %></div>
+  <% end %>
 <% end %>
