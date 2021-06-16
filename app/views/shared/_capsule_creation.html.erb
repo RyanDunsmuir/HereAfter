@@ -5,7 +5,7 @@
 
       <div class="modal-header">
 
-        <h2 style="margin-left: 10vh;">Send a capsule</h2>
+        <h2 class="flex-grow-1 text-center">Send a capsule</h2>
 
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -17,18 +17,31 @@
       <div class="modal-body">
         <% @new_capsule = Capsule.new %>
         <%= simple_form_for @new_capsule, method: :post, remote: true do |f| %>
-          <%= f.input :category, as: :select, collection: @categories, prompt: 'Select Category', label: false %>
+          <%= f.input :category,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: Capsule::CATEGORIES %>
           <%= f.input :users, as: :select, collection: @users, prompt: 'Recipient', label: false %>
 
-          <%= f.input :title, input_html: { class: "p-3" } %>
+          <%= f.input :title, input_html: { class: "p-3", autocomplete: "off" } %>
           <%= f.input :message, input_html: { class: "p-3" } %>
           <%= f.input :arrival_date, as: :datetime, html5: true %>
           <%= hidden_field_tag :timezone_offset, '0' %>
-          <p class="text-center" style="opacity: 0.6;"><em>Please not that this time is your Local Time</em></p>
+          <p class="text-center" style="opacity: 0.6;"><em>Please note that this time is relative to <strong id="your-time-zone">your Local Time</strong></em></p>
       <div>
         <%= f.submit class: 'primary-button btn-block mt-4' %>
         <% end %>
-        <script>document.getElementById('timezone_offset').value = new Date().getTimezoneOffset();</script>
+        <script>
+          document.getElementById('timezone_offset').value = new Date().getTimezoneOffset();
+          const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+          if (timezone) {
+            document.getElementById('your-time-zone').innerText = timezone;
+          }
+        </script>
       </div>
 
       </div>

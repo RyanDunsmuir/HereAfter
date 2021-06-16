@@ -1,7 +1,19 @@
 
 <% if user.avatar_photo.present? %>
-  <img class="profile-avatar-cartoon" src="<%= user.avatar_photo %>">
+  <% if user == current_user %>
+    <%= link_to avatar_path do %>
+      <img class="profile-avatar-cartoon" src="<%= user.avatar_photo %>">
+    <% end %>
+  <% else %>
+    <img class="profile-avatar-cartoon" src="<%= user.avatar_photo %>">
+  <% end %>
 <% else %>
-  <div class="inbox-avatar"><%= user.first_name[0].upcase %></div>
+  <% if user == current_user %>
+    <%= link_to avatar_path do %>
+      <div class="inbox-avatar"><%= user.first_name[0].upcase %></div>
+    <% end %>
+  <% else %>
+    <img class="profile-avatar-cartoon" src="<%= user.avatar_photo %>">
+  <% end %>
 <% end %>
 

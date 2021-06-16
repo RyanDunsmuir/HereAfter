@@ -14,6 +14,8 @@ class Capsule < ApplicationRecord
   scope :arrived, -> { where(arrival_date: (Time.current - 1000.years)..Time.current) }
   scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
+
+  CATEGORIES = ["General", "Birthday", "Confession", "Prediction"]
 end
 
 # capsule.owner > who made the capsules
