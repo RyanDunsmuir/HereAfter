@@ -14,6 +14,7 @@
 .badge-description {
   text-align: center;
   color: $our-black;
+  opacity: 0.87;
 }
 
 .card-product {
@@ -39,4 +40,11 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.badge-show-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

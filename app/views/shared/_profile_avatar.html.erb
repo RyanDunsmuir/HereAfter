@@ -1,0 +1,7 @@
+
+<% if user.avatar_photo.present? %>
+  <img class="profile-avatar-cartoon" src="<%= user.avatar_photo %>">
+<% else %>
+  <div class="inbox-avatar"><%= user.first_name[0].upcase %></div>
+<% end %>
+

@@ -11,7 +11,7 @@
       <% end %>
     <% end %>
 
-      <%= link_to "#" do %>
+      <%= link_to "/avatar" do %>
         <% if current_user.avatar_photo.present? %>
           <img class="avatar-profile avatar-bordered" src="<%= current_user.avatar_photo %>">
           <% else %>
@@ -183,7 +183,7 @@
   <!-- Adds class active-tab to Badges tab -->
     <% if current_page?(controller: 'pages', action: 'profile') %>
 
-      <%= link_to profile_path, class: "active-tab sidebar-tab pages p-3 m-1" do %>
+      <%= link_to profile_id_path(current_user), class: "active-tab sidebar-tab pages p-3 m-1" do %>
         <li>
           <i class="main-icon fas fa-user ml-2"></i><span class="ml-3">Profile</span>
         </li>
@@ -192,7 +192,7 @@
   <!-- Removes class active-tab to Badges tab -->
     <% else %>
 
-      <%= link_to profile_path, class: "sidebar-tab pages p-3 m-1" do %>
+      <%= link_to profile_id_path(current_user), class: "sidebar-tab pages p-3 m-1" do %>
         <li>
           <i class="main-icon fas fa-user ml-2"></i><span class="ml-3">Profile</span>
         </li>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users, only: :update
+  resources :users, only: %i[update show]
   resources :capsules, only: %i[create update destroy]
   resources :badges, only: %i[index show update]
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/opened' => 'pages#opened', :as => :opened
   get '/avatar' => 'pages#avatar', :as => :avatar
   get '/profile' => 'pages#profile', :as => :profile
+  get '/profile/:id' => 'pages#profile', :as => :profile_id
 
 
   # post '/capsules' => 'capsules#create', :as => :capsules

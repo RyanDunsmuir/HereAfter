@@ -2,7 +2,7 @@
 <!-- ARRIVED AND READ -->
 
 <div data-toggle="modal" data-target=".capsule_open_bd-example-modal-<%= capsule.id %>">
-  <div class="inbox-card">
+  <div class="inbox-card pointer-hover">
     <div class="inbox-card-left">
       <%= render 'shared/inbox_avatar', capsule: capsule %>
       <div class="name-date-sent">
@@ -30,6 +30,9 @@
         </div>
       </div>
     </div>
+    <%= link_to capsule_path(capsule), method: :delete, class: "main-icon hidden-bin", data: { confirm: "Are you sure you want to delete this capsule?"} do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
   </div>
 
   <%= render 'shared/capsule_open', capsule: capsule %>

@@ -12,6 +12,7 @@ class CapsulesController < ApplicationController
 
     gain_experience
     unlock_level_badges(current_user)
+    unlock_category_badges(current_user, correct_category)
 
     # no need for app/views/capsules/create.html.erb
     redirect_to inbox_path
@@ -22,7 +23,7 @@ class CapsulesController < ApplicationController
     @capsule.destroy
 
     # no need for app/views/capsules/destroy.html.erb
-    redirect_to capsules_path
+    redirect_back fallback_location: "/inbox"
   end
 
   def update
@@ -60,6 +61,14 @@ class CapsulesController < ApplicationController
       levels.each_with_index do |level_xp, index|
         return index + 1 if (user_xp >= level_xp.to_i && user_xp < levels[index + 1].to_i)
       end
+    end
+  end
+
+  def unlock_category_badges(user, category)
+    categories = Category.all.map { |category| category.name } # ['birthday', 'confession' ... ]
+    if categories.include?(category)
+      badge = Badge.where(title: "#{category}").first
+      UserBadge.create(user: user, badge: badge)
     end
   end
 

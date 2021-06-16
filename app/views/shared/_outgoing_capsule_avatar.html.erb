@@ -1,0 +1,7 @@
+
+<% if capsule.users.first.avatar_photo.present? %>
+  <img class="capsule-avatar-cartoon" src="<%= capsule.users.first.avatar_photo %>">
+<% else %>
+  <div class="inbox-avatar"><%= capsule.users.first.first_name[0].upcase %></div>
+<% end %>
+
