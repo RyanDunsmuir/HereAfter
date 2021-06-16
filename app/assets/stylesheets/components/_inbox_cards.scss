@@ -5,6 +5,7 @@ body a {
 }
 
 .inbox-card {
+  position: relative;
   color: $our-black;
   display: flex;
   justify-content:space-between;
@@ -26,12 +27,16 @@ body a {
     h2 {
       color: $dark-black;
     }
+    .hidden-bin {
+      opacity: 1;
+    }
   }
   a {
     &:hover {
       text-decoration: none;
     }
   }
+
 }
 
 .inbox-avatar {
@@ -63,6 +68,24 @@ body a {
   &:hover {
     opacity: 1;
   }
+}
+.capsule-unread {
+  animation: background-color-change 1.5s infinite;
+  &:hover {
+    background-color: $purple-main-light;
+    border-color: $purple-main-light;
+    animation: none;
+    cursor: pointer;
+    h1, h2, h3, h4, p, em, strong a {
+      text-decoration: none;
+    }
+  }
+}
+
+@keyframes background-color-change {
+  0% { background-color: $purple-main-light; }
+  50% { background-color: $our-white; }
+  100% { background-color: $purple-main-light; }
 }
 
 .name-date-sent {
@@ -209,4 +232,25 @@ body a {
 .cap-not-arrived {
   &:hover {
   }
+}
+
+.pointer-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hidden-bin {
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  top: 24px;
+  transition: $standard-transition;
+  &:hover {
+    color: $red;
+  }
+}
+
+.inbox-right-details {
+  width: 167px;
 }

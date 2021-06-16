@@ -5,16 +5,14 @@
     <h1><%= @badge.title %> Badge</h1>
   </div>
 
-    <%= link_to badges_path do %>
+  <div class="inbox-container">
+
+    <%= link_to profile_id_path(params[:profile]) do %>
       <i class="back-button fas fa-chevron-circle-left m-3"></i>
     <% end %>
-
-
-  <div class="container">
-
-    <div class="card-product m-3">
-      <%= image_tag(@badge.image_url, class: "badge-image-show") %>
-      <div class="card-product-infos">
+    <div class="badge-show-center m-3">
+      <%= image_tag(@badge.image_url, class: "badge-image-show mb-4") %>
+      <div class="card-product-infos mt-4">
         <h3 class="badge-description"> <em><%= @badge.description %></em> </h3>
 
       </div>

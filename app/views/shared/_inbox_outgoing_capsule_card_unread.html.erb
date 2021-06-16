@@ -1,7 +1,7 @@
 <!-- ARRIVED AND UNREAD -->
 
 <div data-toggle="modal" data-target=".capsule_open_bd-example-modal-<%= capsule.id %>">
-<div class="inbox-card" id="unread-hover">
+<div class="inbox-card pointer-hover" id="unread-hover">
     <div class="inbox-card-left">
       <%= render 'shared/inbox_outgoing_avatar', capsule: capsule %>
       <div class="name-date-sent">
@@ -38,6 +38,6 @@
     </div>
     </div>
 </div>
-<%= render 'shared/capsule_open', capsule: capsule %>
+<%= render 'shared/outgoing_capsule_open', capsule: capsule %>
 
 </div>

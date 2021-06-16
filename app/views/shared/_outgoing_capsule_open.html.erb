@@ -8,14 +8,14 @@
 
         <div class="capsule-title-container">
           <div class="capsule-details-container">
-            <h2 class="mt-4 ml-4">From <strong><%= capsule.owner.first_name.capitalize %> <%= capsule.owner.last_name.first.capitalize %>.</strong> </h2>
+            <h2 class="mt-4 ml-4">To <strong><%= capsule.users.first.first_name.capitalize %> <%= capsule.users.first.last_name.first.capitalize %>.</strong> </h2>
             <div class="capsule-details-dates ml-4">
               <div>
                 <p><em class="details-open" id="sent-date">Sent on <%= capsule.created_at.strftime("%d/%m/%Y") %></p>
               </div>
               <div>
               <p>
-                Arrived on <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
+                Arrival on <%= capsule.arrival_date.strftime("%d/%m/%Y") %></em>
               </p>
               </div>
             </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="mx-4 my-3">
-          <%= render 'shared/capsule_avatar', capsule: capsule %>
+          <%= render 'shared/outgoing_capsule_avatar', capsule: capsule %>
         </div>
 
       </div>
@@ -34,14 +34,9 @@
       </div>
 
       <div class="capsule-buttons-align">
-        <% if capsule.read == false %>
-          <%= link_to capsule_path(capsule), method: :patch, class: "p-4 m-4 btn btn-block primary-button w-100" do %>
-            Done <i class=" ml-2 fas fa-check"></i>
-          <% end %>
-        <% else %>
-          <%= link_to "#", class: "p-4 m-4 btn btn-block primary-button w-100" do %>
-            Done <i class=" ml-2 fas fa-check"></i>
-          <% end %>
+
+        <%= link_to "#", class: "p-4 m-4 btn btn-block primary-button w-100" do %>
+          Back
         <% end %>
 
       </div>

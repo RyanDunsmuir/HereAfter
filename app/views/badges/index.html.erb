@@ -2,30 +2,15 @@
 
 <div class="body-container">
   <div class="inbox-title">
-    <h1>Your Badges</h1>
-  </div>
-
-  <div class="cards mb-5">
-    <% current_user.badges.each do |badge| %>
-
-        <%= link_to badge_path(badge), class: "card-trip" do %>
-          <%= image_tag(badge.image_url, class: "badge-image") %>
-
-            <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
-
-        <% end %>
-    <% end %>
+    <h1>Badges</h1>
   </div>
 
   <div class="cards mb-5">
     <% @badges.each do |badge| %>
-
-        <%= link_to badge_path(badge), class: "card-trip" do %>
-          <%= image_tag(badge.image_url, class: "badge-image") %>
-
-            <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
-
-        <% end %>
-    <% end %>
+    <div class="card-trip">
+      <%= image_tag(badge.image_url, class: "badge-image") %>
+      <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
+          </div>
+      <% end %>
   </div>
 </div>
