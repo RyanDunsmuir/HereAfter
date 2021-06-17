@@ -87,6 +87,10 @@ https://i.ibb.co/2Y6HpNq/Avatar-78.jpg
 https://i.ibb.co/7QXG8GD/Avatar-76.jpg
 https://i.ibb.co/MpZCVbH/Avatar-77.jpg)
 
+def xp_badges
+
+end
+
 
 Recipient.destroy_all
 UserBadge.destroy_all

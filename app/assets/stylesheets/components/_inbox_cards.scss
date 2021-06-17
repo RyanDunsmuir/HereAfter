@@ -247,6 +247,7 @@ body a {
   right: 20px;
   top: 24px;
   transition: $standard-transition;
+  animation-fill-mode: forwards;
   &:hover {
     color: $red;
   }
@@ -257,7 +258,8 @@ body a {
 }
 
 .card-fade {
-  animation: 1s ease-in-out 0.5s remove;
+  animation: 1s ease-in 0.5s remove;
+  animation-fill-mode: forwards;
 }
 
 @keyframes remove {
@@ -265,20 +267,17 @@ body a {
     transform: scale(1, 1);
   }
 
-  30% {
-    transform: scale(1, 1);
-  }
-
-  99% {
-    transform: scale(0, 0);
-    height: 0;
+  60% {
+    transform: translate(-1000px);
     opacity: 0;
-    display: none;
+    background-color: #AA89CB;
   }
 
   to {
+    background-color: #5A189A;
     height: 0;
     opacity: 0;
     display: none;
+    padding: 0px;
   }
 }
