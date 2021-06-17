@@ -87,8 +87,21 @@ https://i.ibb.co/2Y6HpNq/Avatar-78.jpg
 https://i.ibb.co/7QXG8GD/Avatar-76.jpg
 https://i.ibb.co/MpZCVbH/Avatar-77.jpg)
 
+
+def define_level(user)
+  user_xp = user.experience
+  if user_xp >= 800
+    return 15
+  else
+    levels = %w(0 10 30 50 80 110 150 200 260 330 400 480 570 670 800)
+    levels.each_with_index do |level_xp, index|
+      return index + 1 if (user_xp >= level_xp.to_i && user_xp < levels[index + 1].to_i)
+    end
+  end
+end
+
 def gain_experience(user)
-  user.update(experience: current_user.experience + 10) unless current_user.experience == 800
+  user.update(experience: user.experience + 10) unless user.experience == 800
 end
 
 def unlock_level_badges(user)
@@ -122,85 +135,6 @@ Capsule.destroy_all
 Category.destroy_all
 User.destroy_all
 Badge.destroy_all
-
-
-puts "Generating 15 Users..."
-
-14.times do
-  avatar_photos.shuffle
-  avatar = avatar_photos.pop
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  email = "#{first_name}@gmail.com"
-  username = Faker::Games::Pokemon.name.strip
-  password = '123456'
-  user = User.new(first_name: first_name, last_name: last_name, email: email, username: username, password: password, avatar_photo: avatar )
-  user.save
-  print "#{username}" + "#{User.all.count == 11 ? '.' : ', '}"
-end
-
-puts "Generating categories..."
-
-categories = %w[General Birthday Confession Prediction]
-
-categories.each do |category|
-  new_category = Category.new(name: category)
-  new_category.save
-  print "#{category}" + "#{Category.all.count == 9 ? '.' : ', '}"
-end
-
-puts "Generating 5 Past Capsules for each User..."
-
-User.all.each do |user|
-  5.times do
-    users = User.all
-    users.to_a.delete_at(user.id - 1)
-
-    time_rand_past = Time.at(0.0 + rand * (Time.now.to_f - 0.0))
-
-    arrival_date = time_rand_past
-    categories = Category.all
-    receiver = users.sample
-    message = Faker::Quote.famous_last_words
-    category = categories.sample
-
-    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
-    Recipient.create(capsule: new_capsule, user: receiver)
-    new_capsule.update(created_at: time_rand_past - (rand(1..10000).days))
-
-    gain_experience(user)
-    unlock_level_badges(user)
-    unlock_category_badges(user, category)
-    unlock_midnight_badge(user, arrival_date)
-
-  end
-end
-
-puts "Generating 5 Future Capsules for each User..."
-
-User.all.each do |user|
-  5.times do
-    users = User.all
-    users.to_a.delete_at(user.id - 1)
-
-    arrival_date = Time.at(Time.now + rand * (4776749101.57795 - Time.now.to_f))
-
-    categories = Category.all
-    receiver = users.sample
-    message = Faker::Quote.famous_last_words
-    category = categories.sample
-
-    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
-    Recipient.create(capsule: new_capsule, user: receiver)
-    new_capsule.update(created_at: Time.now - (rand(1..400).days))
-
-    gain_experience(user)
-    unlock_level_badges(user)
-    unlock_category_badges(user, category)
-    unlock_midnight_badge(user, arrival_date)
-
-  end
-end
 
 puts "Creating a few badges..."
 
@@ -260,6 +194,84 @@ Badge.create(
   description: "What will the future hold? Who can truly know? Apparently you can! Let's see if what you predicted will become reality...",
   image_url: "https://lh3.googleusercontent.com/njFwm-iZlaE9_lkYSttKkSwrw1ZyAWApVwCu40U80-tRt0f5nJDsu0gcYfRZFPF4vXbwtnxmEgjDmOf93X9uIKEMOe7tASlsi5EIVKYKRwHLRrh9_GpczXBwT3Zr-dctbz-wo1x0-A=w800"
   )
+
+puts "Generating 15 Users..."
+
+14.times do
+  avatar_photos.shuffle
+  avatar = avatar_photos.pop
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = "#{first_name}@gmail.com"
+  username = Faker::Games::Pokemon.name.strip
+  password = '123456'
+  user = User.new(first_name: first_name, last_name: last_name, email: email, username: username, password: password, avatar_photo: avatar )
+  user.save
+  print "#{username}" + "#{User.all.count == 11 ? '.' : ', '}"
+end
+
+puts "Generating categories..."
+
+categories = %w[General Birthday Confession Prediction]
+
+categories.each do |category|
+  new_category = Category.new(name: category)
+  new_category.save
+  print "#{category}" + "#{Category.all.count == 9 ? '.' : ', '}"
+end
+
+puts "Generating 5 Past Capsules for each User..."
+
+User.all.each do |user|
+  rand(3..6).times do
+    users = User.all
+    users.to_a.delete_at(user.id - 1)
+
+    time_rand_past = Time.at(0.0 + rand * (Time.now.to_f - 0.0))
+
+    arrival_date = time_rand_past
+    categories = Category.all
+    receiver = users.sample
+    message = Faker::Quote.famous_last_words
+    category = categories.sample
+
+    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    Recipient.create(capsule: new_capsule, user: receiver)
+    new_capsule.update(created_at: time_rand_past - (rand(1..10000).days))
+
+    gain_experience(user)
+    unlock_level_badges(user)
+    unlock_category_badges(user, category)
+    unlock_midnight_badge(user, arrival_date)
+
+  end
+end
+
+puts "Generating 5 Future Capsules for each User..."
+
+User.all.each do |user|
+  rand(3..7).times do
+    users = User.all
+    users.to_a.delete_at(user.id - 1)
+
+    arrival_date = Time.at(Time.now + rand * (4776749101.57795 - Time.now.to_f))
+
+    categories = Category.all
+    receiver = users.sample
+    message = Faker::Quote.famous_last_words
+    category = categories.sample
+
+    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    Recipient.create(capsule: new_capsule, user: receiver)
+    new_capsule.update(created_at: Time.now - (rand(1..400).days))
+
+    gain_experience(user)
+    unlock_level_badges(user)
+    unlock_category_badges(user, category)
+    unlock_midnight_badge(user, arrival_date)
+
+  end
+end
 
 
 puts "All Done!"

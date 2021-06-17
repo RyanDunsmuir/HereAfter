@@ -33,6 +33,19 @@
   border-radius: 30px;
 }
 
+.inbox-container-badges {
+
+  margin-right: 50px;
+  padding: 16px;
+  height: 610px;
+  background: #FFFFFF;
+  overflow-y: hidden;
+  /* 03 dp */
+
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.14), 0px 3px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
 .inbox-container::-webkit-scrollbar {
   display: none;
 }
