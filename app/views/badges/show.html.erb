@@ -1,11 +1,11 @@
 <%= render 'shared/sidebar' %>
 
-<div class="body-container badges-anchor">
+<div class="body-container">
   <div class="inbox-title ml-5">
     <h1><%= @badge.title %> Badge</h1>
   </div>
 
-  <div class="inbox-container">
+  <div class="inbox-container-badge-show">
 
     <%= link_to profile_id_path(params[:profile]) do %>
       <i class="back-button fas fa-chevron-circle-left m-3 position-correct"></i>

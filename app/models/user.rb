@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :user_badges, dependent: :destroy
   has_many :badges, through: :user_badges
-  has_many :recipients
+  has_many :recipients, dependent: :destroy
   has_many :capsules, through: :recipients
   has_many :owned_capsules, class_name: 'Capsule', foreign_key: 'owner_id', dependent: :destroy
   # this means user.owned_capsules = outgoing capsules

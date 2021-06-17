@@ -30,10 +30,8 @@
     </div>
   <% end %>
   <div class="mt-3">
-    <h4>Cancel my account</h4>
+    <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "secondary-button btn btn-block w-100" %></p>
 
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= link_to "Back", :back %>
+    <%= link_to "Back", inbox_path, class: "secondary-button btn btn-block w-100" %>
   </div>
 </div>

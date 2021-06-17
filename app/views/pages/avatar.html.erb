@@ -6,7 +6,7 @@
   <div class="inbox-title">
       <h1>Select Your Avatar</h1>
   </div>
-  <div class="avatars-grid">
+  <div class="avatars-grid" style="margin-bottom: 50px;">
     <% avatars.each do |avatar| %>
       <%= link_to user_path(current_user, avatar: avatar), method: :patch do %>
      <div class="avatar-select-card">
