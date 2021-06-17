@@ -87,8 +87,32 @@ https://i.ibb.co/2Y6HpNq/Avatar-78.jpg
 https://i.ibb.co/7QXG8GD/Avatar-76.jpg
 https://i.ibb.co/MpZCVbH/Avatar-77.jpg)
 
-def xp_badges
+def gain_experience(user)
+  user.update(experience: current_user.experience + 10) unless current_user.experience == 800
+end
 
+def unlock_level_badges(user)
+  level = define_level(user)
+  badge_levels = [2, 5, 10, 15]
+  if badge_levels.include?(level)
+    badge = Badge.where(title: "Level #{level == 2 ? level - 1 : level}").first
+    UserBadge.create(user: user, badge: badge)
+  end
+end
+
+def unlock_category_badges(user, category)
+  categories = ["General", "Birthday", "Confession", "Prediction"]
+  if categories.include?(category)
+    badge = Badge.where(title: category).first
+    UserBadge.create(user: user, badge: badge)
+  end
+end
+
+def unlock_midnight_badge(user, date)
+  if (date.to_f % 86_400).zero?
+    badge = Badge.where(title: "Midnight").first
+    UserBadge.create(user: user, badge: badge)
+  end
 end
 
 
@@ -102,7 +126,7 @@ Badge.destroy_all
 
 puts "Generating 15 Users..."
 
-15.times do
+14.times do
   avatar_photos.shuffle
   avatar = avatar_photos.pop
   first_name = Faker::Name.first_name
@@ -138,10 +162,17 @@ User.all.each do |user|
     categories = Category.all
     receiver = users.sample
     message = Faker::Quote.famous_last_words
+    category = categories.sample
 
-    new_capsule = Capsule.create(owner: user, category: categories.sample, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
     Recipient.create(capsule: new_capsule, user: receiver)
     new_capsule.update(created_at: time_rand_past - (rand(1..10000).days))
+
+    gain_experience(user)
+    unlock_level_badges(user)
+    unlock_category_badges(user, category)
+    unlock_midnight_badge(user, arrival_date)
+
   end
 end
 
@@ -157,10 +188,17 @@ User.all.each do |user|
     categories = Category.all
     receiver = users.sample
     message = Faker::Quote.famous_last_words
+    category = categories.sample
 
-    new_capsule = Capsule.create(owner: user, category: categories.sample, arrival_date: arrival_date, message: message, title: Faker::Book.title)
+    new_capsule = Capsule.create(owner: user, category: category, arrival_date: arrival_date, message: message, title: Faker::Book.title)
     Recipient.create(capsule: new_capsule, user: receiver)
     new_capsule.update(created_at: Time.now - (rand(1..400).days))
+
+    gain_experience(user)
+    unlock_level_badges(user)
+    unlock_category_badges(user, category)
+    unlock_midnight_badge(user, arrival_date)
+
   end
 end
 
