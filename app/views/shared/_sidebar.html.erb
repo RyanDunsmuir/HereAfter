@@ -16,11 +16,16 @@
           <img class="avatar-profile avatar-bordered" src="<%= current_user.avatar_photo %>">
 
           <div class="edit-avatar">
-            <p class="text-center mt-3">EDIT</p>
+            <p class="text-center">EDIT</p>
           </div>
 
           <% else %>
           <div class="avatar-profile sidebar-avatar-default"><%= current_user.first_name[0].upcase %></div>
+
+          <div class="edit-avatar">
+            <p class="text-center">EDIT</p>
+          </div>
+
         <% end %>
       <% end %>
 
@@ -159,30 +164,6 @@
       <% end %>
 
 
-
-<!-- --------------------------- BADGES TAB -------------------------------- -->
-
-    <!-- Adds class active-tab to Badges tab -->
-      <% if current_controller?(controller: 'badges') %>
-
-        <%= link_to badges_path, class: "active-tab sidebar-tab badges p-3 m-1" do %>
-          <li>
-            <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
-          </li>
-        <% end %>
-
-    <!-- Removes class active-tab to Badges tab -->
-      <% else %>
-
-        <%= link_to badges_path,class: "sidebar-tab badges p-3 m-1" do %>
-          <li>
-            <i class="main-icon fas fa-certificate ml-2"></i><span class="ml-3">Badges</span>
-          </li>
-        <% end %>
-      <% end %>
-
-
-
 <!-- --------------------------- PROFILE TAB -------------------------------- -->
 
   <!-- Adds class active-tab to Badges tab -->
@@ -203,7 +184,6 @@
         </li>
       <% end %>
     <% end %>
-
 
 
   </ul>

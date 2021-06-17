@@ -15,6 +15,7 @@
       </div>
 
       <div class="modal-body">
+
         <% @new_capsule = Capsule.new %>
         <%= simple_form_for @new_capsule, method: :post, remote: true do |f| %>
           <%= f.input :category,
