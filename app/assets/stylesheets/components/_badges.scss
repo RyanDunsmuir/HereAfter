@@ -48,6 +48,18 @@
   padding: 16px;
 }
 
+.inbox-container-badge-show {
+  margin-top: 10px;
+  margin-right: 50px;
+  padding: 30px;
+  background: #FFFFFF;
+  overflow-y: scroll;
+  /* 03 dp */
+
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.14), 0px 3px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
 .badge-show-center {
   display: flex;
   flex-direction: column;
@@ -57,8 +69,8 @@
 
 .position-correct {
   position: absolute;
-  left: 300px;
-  top: 22px;
+  left: 290px;
+  top: 105px;
 }
 
 .badges-anchor {

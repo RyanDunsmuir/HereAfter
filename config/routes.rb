@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users, only: %i[update show]
   resources :capsules, only: %i[create update destroy]
@@ -8,8 +9,6 @@ Rails.application.routes.draw do
   # get 'badges/index'
   # get 'badges/show'
   # get 'badges/update'
-
-  devise_for :users, controllers: { registrations: "registrations" }
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
