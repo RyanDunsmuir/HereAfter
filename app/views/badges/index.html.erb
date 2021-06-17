@@ -5,13 +5,21 @@
     <h1>Badges</h1>
   </div>
 
-    <div class="cards mb-5">
-      <% @badges.each do |badge| %>
-      <div class="card-trip">
-        <%= image_tag(badge.image_url, class: "badge-image") %>
-        <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
-            </div>
-        <% end %>
+
+    <div class="inbox-container">
+
+    <%= link_to profile_id_path(params[:profile]) do %>
+      <i class="back-button back-button-badges fas fa-chevron-circle-left m-3"></i>
+    <% end %>
+
+      <div class="cards mb-5">
+        <% @badges.each do |badge| %>
+        <div class="card-trip">
+          <%= image_tag(badge.image_url, class: "badge-image") %>
+          <p class="text-center m-3"><em>Hint: <%= badge.hint %></em></p>
+              </div>
+          <% end %>
+      </div>
     </div>
 
 </div>

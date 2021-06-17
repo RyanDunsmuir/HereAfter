@@ -55,6 +55,11 @@
   }
 }
 
+.profile-bottom-title {
+  display: flex;
+  justify-content: space-between;
+}
+
 .profile-badges {
   z-index: 3;
   display: grid;
@@ -96,4 +101,42 @@
   left: 700px;
   width: 300px;
   opacity: 0.2;
+}
+
+
+
+.all-badges-button {
+  display: flex;
+  align-items: center;
+  border: 2px solid $purple-main;
+  border-radius: 28px;
+  color: $purple-main;
+  font-style: normal;
+  height: 48px;
+  justify-content:center;
+  width: 150px;
+  transition: $standard-transition;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  a {
+    color: $purple-main;
+    opacity: 0.6;
+    text-decoration: none;
+
+    &:hover {
+    color: $purple-main;
+    opacity: 1;
+    text-decoration: none;
+    }
+  }
+
+   &:hover {
+    color: $purple-main;
+    opacity: 1;
+  }
 }

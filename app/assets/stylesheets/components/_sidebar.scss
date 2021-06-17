@@ -46,6 +46,9 @@
   z-index: 0;
   opacity: 0;
   transition: $standard-transition;
+  p {
+    margin-top: 18px;
+  }
   &:hover {
     opacity: 0.6;
   }
